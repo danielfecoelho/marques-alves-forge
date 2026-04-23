@@ -13,16 +13,18 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PHONE = "+351 910 000 000";
-const PHONE_RAW = "+351910000000";
-const WHATSAPP = "https://wa.me/351910000000?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
+const PHONE = "916 328 909";
+const PHONE_RAW = "+351916328909";
+const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const EMAIL = "geral@serralhariamarquesalves.pt";
+const ADDRESS = "Rua de Real, 4765-148 Pedome";
+const SCHEDULE = "Seg a Sex · 07:00 – 18:00";
 
 const services = [
-  { icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, vigamentos e estruturas industriais executadas com precisão e robustez." },
-  { icon: HardHat, title: "Coberturas e Acabamentos", desc: "Coberturas em chapa, painel sandwich e remates metálicos de alta qualidade." },
-  { icon: DoorOpen, title: "Portões e Grades", desc: "Portões automáticos, grades e vedações em ferro e alumínio à medida." },
-  { icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de amianto, com substituição por novas coberturas." },
+  { icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
+  { icon: HardHat, title: "Coberturas em Painel Sandwich", desc: "Revestimentos de coberturas em painel sandwich, novos ou recuperados, com execução rápida." },
+  { icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, armazéns e estruturas industriais executadas com precisão e robustez." },
+  { icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
 ];
 
 const works = [work1, work2, work3, work4, work5, work6];
@@ -73,10 +75,10 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Serralharia Civil & Estruturas Metálicas
           </span>
           <h1 className="mt-6 font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground md:text-7xl">
-            Soluções em ferro e alumínio <span className="text-primary">feitas para durar</span>
+            Soluções metálicas <span className="text-primary">feitas para durar</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85 md:text-xl">
-            Especialistas em portões, vedações e estruturas metálicas na zona de Lisboa e Vale do Tejo. Trabalho sólido, rigoroso e com garantia.
+            Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em Pedome e em todo o Norte de Portugal.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg" className="h-14 px-8 text-base shadow-[var(--shadow-glow)]">
@@ -196,8 +198,12 @@ function WhyUs() {
               Confiança construída <span className="text-primary">aço a aço</span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75">
-              Com mais de 15 anos no setor, a Serralharia Marques Alves combina experiência tradicional e equipamento moderno para garantir o melhor resultado em cada obra.
+              A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
             </p>
+            <div className="mt-6 flex items-center gap-2 text-sm text-secondary-foreground/80">
+              <span className="text-primary">★★★★★</span>
+              <span>5,0 · Avaliação no Google</span>
+            </div>
           </div>
           <div className="space-y-5">
             {advantages.map((a) => (
@@ -251,13 +257,22 @@ function Contact() {
                     <div className="text-base font-medium">{EMAIL}</div>
                   </div>
                 </a>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary">
+                <a href="https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Rua+de+Real+Pedome" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Morada</div>
-                    <div className="text-base font-medium">Rua da Serralharia, 123 — Lisboa</div>
+                    <div className="text-base font-medium">{ADDRESS}</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary">
+                    <Clock className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Horário</div>
+                    <div className="text-base font-medium">{SCHEDULE}</div>
                   </div>
                 </div>
               </div>
@@ -286,10 +301,11 @@ function Contact() {
               <div>
                 <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tipo de Trabalho</label>
                 <select className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none">
-                  <option>Estruturas Metálicas</option>
-                  <option>Coberturas / Acabamentos</option>
-                  <option>Portões / Grades</option>
                   <option>Remoção de Amianto</option>
+                  <option>Coberturas em Painel Sandwich</option>
+                  <option>Revestimento de Fachadas</option>
+                  <option>Estruturas Metálicas</option>
+                  <option>Venda de Painéis / Ferro</option>
                   <option>Outro</option>
                 </select>
               </div>
