@@ -198,8 +198,12 @@ function WhyUs() {
               Confiança construída <span className="text-primary">aço a aço</span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75">
-              Com mais de 15 anos no setor, a Serralharia Marques Alves combina experiência tradicional e equipamento moderno para garantir o melhor resultado em cada obra.
+              A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
             </p>
+            <div className="mt-6 flex items-center gap-2 text-sm text-secondary-foreground/80">
+              <span className="text-primary">★★★★★</span>
+              <span>5,0 · Avaliação no Google</span>
+            </div>
           </div>
           <div className="space-y-5">
             {advantages.map((a) => (
