@@ -65,9 +65,9 @@ function Hero() {
   return (
     <section id="top" className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <img src={heroImage} alt="Serralharia industrial" width={1920} height={1280} className="h-full w-full object-cover" />
+        <img src={heroImage} alt="Técnico da Serralharia Marques Alves em obra" width={1920} height={1280} className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-        <div className="absolute inset-0 bg-secondary/40" />
+        <div className="absolute inset-0 bg-secondary/60" />
       </div>
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
         <div className="max-w-3xl">
