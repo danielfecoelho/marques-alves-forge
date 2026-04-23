@@ -257,13 +257,22 @@ function Contact() {
                     <div className="text-base font-medium">{EMAIL}</div>
                   </div>
                 </a>
-                <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary">
+                <a href="https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Rua+de+Real+Pedome" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Morada</div>
-                    <div className="text-base font-medium">Rua da Serralharia, 123 — Lisboa</div>
+                    <div className="text-base font-medium">{ADDRESS}</div>
+                  </div>
+                </a>
+                <div className="flex items-center gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary">
+                    <Clock className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Horário</div>
+                    <div className="text-base font-medium">{SCHEDULE}</div>
                   </div>
                 </div>
               </div>
