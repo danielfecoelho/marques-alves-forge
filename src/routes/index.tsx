@@ -301,10 +301,11 @@ function Contact() {
               <div>
                 <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tipo de Trabalho</label>
                 <select className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none">
-                  <option>Estruturas Metálicas</option>
-                  <option>Coberturas / Acabamentos</option>
-                  <option>Portões / Grades</option>
                   <option>Remoção de Amianto</option>
+                  <option>Coberturas em Painel Sandwich</option>
+                  <option>Revestimento de Fachadas</option>
+                  <option>Estruturas Metálicas</option>
+                  <option>Venda de Painéis / Ferro</option>
                   <option>Outro</option>
                 </select>
               </div>
