@@ -75,10 +75,10 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Serralharia Civil & Estruturas Metálicas
           </span>
           <h1 className="mt-6 font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground md:text-7xl">
-            Soluções em ferro e alumínio <span className="text-primary">feitas para durar</span>
+            Soluções metálicas <span className="text-primary">feitas para durar</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85 md:text-xl">
-            Especialistas em portões, vedações e estruturas metálicas na zona de Lisboa e Vale do Tejo. Trabalho sólido, rigoroso e com garantia.
+            Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em Pedome e em todo o Norte de Portugal.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg" className="h-14 px-8 text-base shadow-[var(--shadow-glow)]">
