@@ -13,16 +13,18 @@ export const Route = createFileRoute("/")({
   component: Index,
 });
 
-const PHONE = "+351 910 000 000";
-const PHONE_RAW = "+351910000000";
-const WHATSAPP = "https://wa.me/351910000000?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
+const PHONE = "916 328 909";
+const PHONE_RAW = "+351916328909";
+const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const EMAIL = "geral@serralhariamarquesalves.pt";
+const ADDRESS = "Rua de Real, 4765-148 Pedome";
+const SCHEDULE = "Seg a Sex · 07:00 – 18:00";
 
 const services = [
-  { icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, vigamentos e estruturas industriais executadas com precisão e robustez." },
-  { icon: HardHat, title: "Coberturas e Acabamentos", desc: "Coberturas em chapa, painel sandwich e remates metálicos de alta qualidade." },
-  { icon: DoorOpen, title: "Portões e Grades", desc: "Portões automáticos, grades e vedações em ferro e alumínio à medida." },
-  { icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de amianto, com substituição por novas coberturas." },
+  { icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
+  { icon: HardHat, title: "Coberturas em Painel Sandwich", desc: "Revestimentos de coberturas em painel sandwich, novos ou recuperados, com execução rápida." },
+  { icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, armazéns e estruturas industriais executadas com precisão e robustez." },
+  { icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
 ];
 
 const works = [work1, work2, work3, work4, work5, work6];
