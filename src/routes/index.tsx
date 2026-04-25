@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-metalwork.jpg";
+import logo from "@/assets/logo.png";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
@@ -39,11 +40,8 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#top" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground font-display text-lg font-bold">M</div>
-          <span className="font-display text-base font-semibold uppercase tracking-wide text-foreground">
-            Marques Alves
-          </span>
+        <a href="#top" aria-label="Serralharia Marques Alves — voltar ao início" className="flex items-center">
+          <img src={logo} alt="Serralharia Marques Alves" className="h-9 w-auto md:h-10" />
         </a>
         <nav className="hidden items-center gap-8 md:flex">
           <a href="#servicos" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Serviços</a>
@@ -71,17 +69,17 @@ function Hero() {
       </div>
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
         <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Serralharia Civil & Estruturas Metálicas
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-white" /> Serralharia Civil & Estruturas Metálicas
           </span>
           <h1 className="mt-6 font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground md:text-7xl">
-            Soluções metálicas <span className="text-primary">feitas para durar</span>
+            Soluções metálicas <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">feitas para durar</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85 md:text-xl">
             Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em Pedome e em todo o Norte de Portugal.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="h-14 px-8 text-base shadow-[var(--shadow-glow)]">
+            <Button asChild size="lg" className="h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
               <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
                 Pedir Orçamento Grátis <ArrowRight className="h-5 w-5" />
               </a>
@@ -92,15 +90,15 @@ function Hero() {
           </div>
           <div className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-secondary-foreground/15 pt-6">
             <div>
-              <div className="font-display text-3xl font-bold text-primary">15+</div>
+              <div className="font-display text-3xl font-bold text-white">15+</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Anos de experiência</div>
             </div>
             <div>
-              <div className="font-display text-3xl font-bold text-primary">500+</div>
+              <div className="font-display text-3xl font-bold text-white">500+</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Projetos concluídos</div>
             </div>
             <div>
-              <div className="font-display text-3xl font-bold text-primary">100%</div>
+              <div className="font-display text-3xl font-bold text-white">100%</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Satisfação garantida</div>
             </div>
           </div>
@@ -195,20 +193,20 @@ function WhyUs() {
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Porquê escolher-nos</span>
             <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
-              Confiança construída <span className="text-primary">aço a aço</span>
+              Confiança construída <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">aço a aço</span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75">
               A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
             </p>
             <div className="mt-6 flex items-center gap-2 text-sm text-secondary-foreground/80">
-              <span className="text-primary">★★★★★</span>
+              <span className="text-white">★★★★★</span>
               <span>5,0 · Avaliação no Google</span>
             </div>
           </div>
           <div className="space-y-5">
             {advantages.map((a) => (
-              <div key={a.title} className="flex gap-5 rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.03] p-6 transition-colors hover:border-primary/40">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
+              <div key={a.title} className="flex gap-5 rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.03] p-6 transition-colors hover:border-white/40">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white text-black">
                   <a.icon className="h-6 w-6" />
                 </div>
                 <div>
@@ -231,7 +229,7 @@ function Contact() {
         <div className="overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-industrial)]">
           <div className="grid lg:grid-cols-2">
             <div className="bg-secondary p-10 text-secondary-foreground md:p-14">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Fale connosco</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Fale connosco</span>
               <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-tight md:text-5xl">
                 Tem um projeto em mente?
               </h2>
@@ -240,7 +238,7 @@ function Contact() {
               </p>
               <div className="mt-8 space-y-5">
                 <a href={`tel:${PHONE_RAW}`} className="group flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
@@ -249,7 +247,7 @@ function Contact() {
                   </div>
                 </a>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
@@ -258,7 +256,7 @@ function Contact() {
                   </div>
                 </a>
                 <a href="https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Rua+de+Real+Pedome" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
@@ -267,7 +265,7 @@ function Contact() {
                   </div>
                 </a>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
@@ -331,10 +329,9 @@ function Footer() {
   return (
     <footer className="border-t border-border bg-secondary py-10 text-secondary-foreground">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-        <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-display text-sm font-bold">M</div>
-          <span className="font-display text-sm font-semibold uppercase tracking-wide">Serralharia Marques Alves</span>
-        </div>
+        <a href="#top" aria-label="Voltar ao início" className="flex items-center">
+          <img src={logo} alt="Serralharia Marques Alves" className="h-8 w-auto brightness-0 invert" />
+        </a>
         <p className="text-xs text-secondary-foreground/60">© {new Date().getFullYear()} Serralharia Marques Alves. Todos os direitos reservados.</p>
       </div>
     </footer>
