@@ -76,7 +76,7 @@ function Hero() {
             Soluções metálicas <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">feitas para durar</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85 md:text-xl">
-            Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em Pedome e em todo o Norte de Portugal.
+            Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em todo o país.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg" className="h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
@@ -191,7 +191,7 @@ function WhyUs() {
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-center">
           <div>
-            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Porquê escolher-nos</span>
+            <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Porquê escolher-nos</span>
             <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
               Confiança construída <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">aço a aço</span>
             </h2>
