@@ -1,7 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/hero-metalwork.jpg";
+import heroImage from "@/assets/hero-technician.jpg";
 import logo from "@/assets/logo-original.png";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
