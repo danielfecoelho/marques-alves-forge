@@ -69,17 +69,17 @@ function Hero() {
       </div>
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
         <div className="max-w-3xl">
-          <span className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-primary backdrop-blur">
-            <span className="h-1.5 w-1.5 rounded-full bg-primary" /> Serralharia Civil & Estruturas Metálicas
+          <span className="inline-flex items-center gap-2 rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur">
+            <span className="h-1.5 w-1.5 rounded-full bg-white" /> Serralharia Civil & Estruturas Metálicas
           </span>
           <h1 className="mt-6 font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground md:text-7xl">
-            Soluções metálicas <span className="text-primary">feitas para durar</span>
+            Soluções metálicas <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">feitas para durar</span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85 md:text-xl">
             Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em Pedome e em todo o Norte de Portugal.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="h-14 px-8 text-base shadow-[var(--shadow-glow)]">
+            <Button asChild size="lg" className="h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
               <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
                 Pedir Orçamento Grátis <ArrowRight className="h-5 w-5" />
               </a>
@@ -90,15 +90,15 @@ function Hero() {
           </div>
           <div className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-secondary-foreground/15 pt-6">
             <div>
-              <div className="font-display text-3xl font-bold text-primary">15+</div>
+              <div className="font-display text-3xl font-bold text-white">15+</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Anos de experiência</div>
             </div>
             <div>
-              <div className="font-display text-3xl font-bold text-primary">500+</div>
+              <div className="font-display text-3xl font-bold text-white">500+</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Projetos concluídos</div>
             </div>
             <div>
-              <div className="font-display text-3xl font-bold text-primary">100%</div>
+              <div className="font-display text-3xl font-bold text-white">100%</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Satisfação garantida</div>
             </div>
           </div>
@@ -193,13 +193,13 @@ function WhyUs() {
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Porquê escolher-nos</span>
             <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
-              Confiança construída <span className="text-primary">aço a aço</span>
+              Confiança construída <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">aço a aço</span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75">
               A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
             </p>
             <div className="mt-6 flex items-center gap-2 text-sm text-secondary-foreground/80">
-              <span className="text-primary">★★★★★</span>
+              <span className="text-white">★★★★★</span>
               <span>5,0 · Avaliação no Google</span>
             </div>
           </div>
