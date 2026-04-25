@@ -49,7 +49,7 @@ function Header() {
           <a href="#porque" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Sobre</a>
           <a href="#contacto" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contacto</a>
         </nav>
-        <Button asChild size="sm" className="hidden md:inline-flex">
+        <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
           <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
             <MessageCircle className="h-4 w-4" /> Pedir Orçamento
           </a>
@@ -79,12 +79,12 @@ function Hero() {
             Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em todo o país.
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
+            <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
               <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
                 Pedir Orçamento Grátis <ArrowRight className="h-5 w-5" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="h-14 border-secondary-foreground/30 bg-transparent px-8 text-base text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground">
+            <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 border-secondary-foreground/30 bg-transparent px-8 text-base text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground">
               <a href="#trabalhos">Ver Trabalhos</a>
             </Button>
           </div>
@@ -113,7 +113,7 @@ function Services() {
     <section id="servicos" className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
-          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Os Nossos Serviços</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Os Nossos Serviços</span>
           <h2 className="mt-3 font-display text-4xl font-bold uppercase text-foreground md:text-5xl">
             Tudo o que o seu projeto precisa
           </h2>
@@ -124,7 +124,6 @@ function Services() {
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
             <div key={s.title} className="group relative overflow-hidden rounded-md border border-secondary/20 bg-secondary p-7 text-secondary-foreground transition-all hover:-translate-y-1 hover:border-accent hover:shadow-[var(--shadow-industrial)]">
-              <div className="absolute inset-x-0 top-0 h-1 bg-accent scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left" />
               <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-black">
                 <s.icon className="h-6 w-6" />
               </div>
@@ -152,7 +151,7 @@ function Gallery() {
               Uma seleção de projetos executados para clientes residenciais, industriais e comerciais.
             </p>
           </div>
-          <Button asChild variant="outline" className="border-foreground text-foreground hover:bg-foreground hover:text-background">
+          <Button asChild variant="outline" className="btn-accent-sweep border-foreground text-foreground hover:bg-foreground hover:text-background">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
           </Button>
         </div>
@@ -274,7 +273,7 @@ function Contact() {
                   </div>
                 </div>
               </div>
-              <Button asChild size="lg" className="mt-10 h-14 w-full bg-[#25D366] px-8 text-base text-white hover:bg-[#1faa54]">
+              <Button asChild size="lg" className="btn-accent-sweep mt-10 h-14 w-full bg-[#25D366] px-8 text-base text-white hover:bg-[#1faa54]">
                 <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
                   <MessageCircle className="h-5 w-5" /> Conversar no WhatsApp
                 </a>
@@ -311,7 +310,7 @@ function Contact() {
                 <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Descreva o seu projeto</label>
                 <textarea rows={4} className="w-full rounded-md border border-input bg-background p-4 text-sm focus:border-primary focus:outline-none" />
               </div>
-              <Button type="submit" size="lg" className="h-14 w-full text-base">
+              <Button type="submit" size="lg" className="btn-accent-sweep h-14 w-full text-base">
                 Enviar Pedido <ArrowRight className="h-5 w-5" />
               </Button>
               <p className="flex items-center gap-2 text-xs text-muted-foreground">
