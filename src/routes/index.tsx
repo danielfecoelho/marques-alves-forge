@@ -205,8 +205,8 @@ function WhyUs() {
           </div>
           <div className="space-y-5">
             {advantages.map((a) => (
-              <div key={a.title} className="flex gap-5 rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.03] p-6 transition-colors hover:border-primary/40">
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary text-primary-foreground">
+              <div key={a.title} className="flex gap-5 rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.03] p-6 transition-colors hover:border-white/40">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white text-black">
                   <a.icon className="h-6 w-6" />
                 </div>
                 <div>
@@ -229,7 +229,7 @@ function Contact() {
         <div className="overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-industrial)]">
           <div className="grid lg:grid-cols-2">
             <div className="bg-secondary p-10 text-secondary-foreground md:p-14">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Fale connosco</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Fale connosco</span>
               <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-tight md:text-5xl">
                 Tem um projeto em mente?
               </h2>
@@ -238,7 +238,7 @@ function Contact() {
               </p>
               <div className="mt-8 space-y-5">
                 <a href={`tel:${PHONE_RAW}`} className="group flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
@@ -247,7 +247,7 @@ function Contact() {
                   </div>
                 </a>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
@@ -256,7 +256,7 @@ function Contact() {
                   </div>
                 </a>
                 <a href="https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Rua+de+Real+Pedome" target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary transition-colors group-hover:bg-primary group-hover:text-primary-foreground">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
@@ -265,7 +265,7 @@ function Contact() {
                   </div>
                 </a>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-primary/15 text-primary">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
