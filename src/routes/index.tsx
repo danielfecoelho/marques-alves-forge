@@ -65,7 +65,7 @@ function Hero() {
       <div className="absolute inset-0 -z-10">
         <img src={heroImage} alt="Técnico da Serralharia Marques Alves em obra" width={1920} height={1280} className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
-        <div className="absolute inset-0 bg-secondary/40" />
+        <div className="absolute inset-0 bg-secondary/30" />
       </div>
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
         <div className="max-w-3xl">
@@ -110,25 +110,20 @@ function Hero() {
 
 function Services() {
   return (
-    <section id="servicos" className="relative bg-secondary py-24 text-secondary-foreground">
-      <div className="absolute inset-0 opacity-[0.05]" style={{
-        backgroundImage: "linear-gradient(var(--secondary-foreground) 1px, transparent 1px), linear-gradient(90deg, var(--secondary-foreground) 1px, transparent 1px)",
-        backgroundSize: "48px 48px",
-      }} />
-      <div className="relative">
+    <section id="servicos" className="bg-background py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-accent">Os Nossos Serviços</span>
-          <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
+          <h2 className="mt-3 font-display text-4xl font-bold uppercase text-foreground md:text-5xl">
             Tudo o que o seu projeto precisa
           </h2>
-          <p className="mt-4 text-secondary-foreground/70">
+          <p className="mt-4 text-muted-foreground">
             Da conceção à instalação, executamos cada trabalho com o máximo cuidado técnico e atenção ao detalhe.
           </p>
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
-            <div key={s.title} className="group relative overflow-hidden rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.04] p-7 transition-all hover:-translate-y-1 hover:border-accent hover:bg-secondary-foreground/[0.07] hover:shadow-[var(--shadow-industrial)]">
+            <div key={s.title} className="group relative overflow-hidden rounded-md border border-secondary/20 bg-secondary p-7 text-secondary-foreground transition-all hover:-translate-y-1 hover:border-accent hover:shadow-[var(--shadow-industrial)]">
               <div className="absolute inset-x-0 top-0 h-1 bg-accent scale-x-0 transition-transform duration-300 group-hover:scale-x-100 origin-left" />
               <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-black">
                 <s.icon className="h-6 w-6" />
@@ -138,7 +133,6 @@ function Services() {
             </div>
           ))}
         </div>
-      </div>
       </div>
     </section>
   );
