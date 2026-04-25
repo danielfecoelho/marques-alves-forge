@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-metalwork.jpg";
+import logo from "@/assets/logo.png";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
@@ -39,11 +40,8 @@ function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
-        <a href="#top" className="flex items-center gap-2">
-          <div className="flex h-9 w-9 items-center justify-center rounded-md bg-primary text-primary-foreground font-display text-lg font-bold">M</div>
-          <span className="font-display text-base font-semibold uppercase tracking-wide text-foreground">
-            Marques Alves
-          </span>
+        <a href="#top" aria-label="Serralharia Marques Alves — voltar ao início" className="flex items-center">
+          <img src={logo} alt="Serralharia Marques Alves" className="h-9 w-auto md:h-10" />
         </a>
         <nav className="hidden items-center gap-8 md:flex">
           <a href="#servicos" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Serviços</a>
@@ -331,10 +329,9 @@ function Footer() {
   return (
     <footer className="border-t border-border bg-secondary py-10 text-secondary-foreground">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-        <div className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-display text-sm font-bold">M</div>
-          <span className="font-display text-sm font-semibold uppercase tracking-wide">Serralharia Marques Alves</span>
-        </div>
+        <a href="#top" aria-label="Voltar ao início" className="flex items-center">
+          <img src={logo} alt="Serralharia Marques Alves" className="h-8 w-auto brightness-0 invert" />
+        </a>
         <p className="text-xs text-secondary-foreground/60">© {new Date().getFullYear()} Serralharia Marques Alves. Todos os direitos reservados.</p>
       </div>
     </footer>
