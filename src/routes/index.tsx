@@ -73,7 +73,7 @@ function Hero() {
             <span className="h-1.5 w-1.5 rounded-full bg-white" /> Serralharia Civil & Estruturas Metálicas
           </span>
           <h1 className="mt-6 font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground md:text-7xl">
-            Soluções metálicas <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">feitas para durar</span>
+            Soluções metálicas <span className="relative inline-block text-white"><span className="relative z-10">feitas para durar</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
           </h1>
           <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85 md:text-xl">
             Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em todo o país.
@@ -151,7 +151,7 @@ function Gallery() {
               Uma seleção de projetos executados para clientes residenciais, industriais e comerciais.
             </p>
           </div>
-          <Button asChild variant="outline" className="btn-accent-sweep border-foreground text-foreground hover:bg-foreground hover:text-background">
+          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-background hover:text-foreground">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
           </Button>
         </div>
@@ -192,7 +192,7 @@ function WhyUs() {
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Porquê escolher-nos</span>
             <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
-              Confiança construída <span className="text-white underline decoration-white/40 decoration-4 underline-offset-8">aço a aço</span>
+              Confiança construída <span className="relative inline-block text-white"><span className="relative z-10">aço a aço</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75">
               A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
