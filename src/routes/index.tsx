@@ -174,7 +174,7 @@ function Gallery() {
               Uma seleção de projetos executados para clientes residenciais, industriais e comerciais.
             </p>
           </div>
-          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground shadow-sm hover:bg-background hover:text-foreground hover:shadow-[var(--shadow-glow)]">
+          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground transition-shadow hover:bg-background hover:text-foreground hover:!shadow-[var(--shadow-glow)]">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
           </Button>
         </div>
@@ -209,7 +209,7 @@ function GalleryTabs() {
         })}
       </div>
       <div
-        className="mt-8 max-h-[calc((100vw-3rem)*0.95)] overflow-y-auto pr-2 sm:max-h-[calc((100vw-3rem)/2*1.05+1rem)] lg:max-h-[calc((min(80rem,100vw)-3rem)/3+1rem)] [scrollbar-color:var(--accent)_transparent]"
+        className="mt-8 max-h-[calc((100vw-3rem)*3+2rem)] overflow-y-auto pr-2 sm:max-h-[calc((100vw-3rem)/2*3+2rem)] lg:max-h-[calc((min(80rem,100vw)-3rem)/3*3+2rem)] [scrollbar-color:var(--accent)_transparent]"
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {current.images.map((src, i) => (
