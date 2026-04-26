@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
@@ -9,6 +10,7 @@ import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+import work7 from "@/assets/work-7.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -29,6 +31,29 @@ const services = [
 ];
 
 const works = [work1, work2, work3, work4, work5, work6];
+
+const galleryCategories = [
+  {
+    id: "amianto",
+    label: "Remoção de Amianto",
+    images: [work1, work3, work5, work2, work4, work6, work7, work1, work3, work5, work2, work4],
+  },
+  {
+    id: "estruturas",
+    label: "Estruturas Metálicas",
+    images: [work2, work4, work6, work7, work1, work3, work5, work2, work4, work6, work7, work1],
+  },
+  {
+    id: "fachadas",
+    label: "Revestimento de Fachadas",
+    images: [work3, work5, work7, work1, work2, work4, work6, work3, work5, work7, work1, work2],
+  },
+  {
+    id: "sandwich",
+    label: "Cobertura em Painel Sandwich",
+    images: [work4, work6, work2, work5, work7, work1, work3, work4, work6, work2, work5, work7],
+  },
+] as const;
 
 const advantages = [
   { icon: Hammer, title: "Orçamentos sem compromisso", desc: "Avaliação gratuita e proposta detalhada para o seu projeto." },
