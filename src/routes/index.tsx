@@ -250,18 +250,14 @@ function WhyUs() {
       }} />
       <div className="relative mx-auto max-w-7xl px-6">
         <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-center">
-          <div>
+          <div className="flex flex-col justify-center text-center lg:text-left">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Porquê escolher-nos</span>
             <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
               Construímos <span className="relative inline-block text-white"><span className="relative z-10">solidez e segurança</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h2>
-            <p className="mt-5 text-secondary-foreground/75">
+            <p className="mt-5 text-secondary-foreground/75 text-justify">
               A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
             </p>
-            <div className="mt-6 flex items-center gap-2 text-sm text-secondary-foreground/80">
-              <span className="text-white">★★★★★</span>
-              <span>5,0 · Avaliação no Google</span>
-            </div>
           </div>
           <div className="space-y-5">
             {advantages.map((a) => (
