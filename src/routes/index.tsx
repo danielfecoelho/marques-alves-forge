@@ -187,6 +187,27 @@ function Gallery() {
 function GalleryTabs() {
   const [active, setActive] = useState<typeof galleryCategories[number]["id"]>(galleryCategories[0].id);
   const current = galleryCategories.find((c) => c.id === active) ?? galleryCategories[0];
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    setLightboxIndex(null);
+  }, [active]);
+
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setLightboxIndex(null);
+      if (e.key === "ArrowRight") setLightboxIndex((i) => (i === null ? i : (i + 1) % current.images.length));
+      if (e.key === "ArrowLeft") setLightboxIndex((i) => (i === null ? i : (i - 1 + current.images.length) % current.images.length));
+    };
+    window.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      window.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [lightboxIndex, current.images.length]);
+
   return (
     <div className="mt-12">
       <div className="flex flex-wrap gap-2 border-b border-border pb-4">
@@ -209,11 +230,16 @@ function GalleryTabs() {
         })}
       </div>
       <div
-        className="mt-8 max-h-[calc((100vw-3rem)*2+1rem)] overflow-y-auto pr-2 sm:max-h-[calc((100vw-3rem)/2*2+1rem)] lg:max-h-[calc((min(80rem,100vw)-3rem)/3*2+1rem)] [scrollbar-color:var(--accent)_transparent]"
+        className="mt-8 max-h-[calc((100vw-3rem)+1rem)] overflow-y-auto pr-2 sm:max-h-[calc((100vw-3rem)/2+1rem)] lg:max-h-[calc((min(80rem,100vw)-3rem)/3+1rem)] [scrollbar-color:var(--accent)_transparent]"
       >
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {current.images.map((src, i) => (
-            <div key={`${current.id}-${i}`} className="group relative aspect-square overflow-hidden rounded-md bg-secondary">
+            <button
+              key={`${current.id}-${i}`}
+              type="button"
+              onClick={() => setLightboxIndex(i)}
+              className="group relative aspect-square overflow-hidden rounded-md bg-secondary text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            >
               <img
                 src={src}
                 alt={`${current.label} — projeto ${i + 1}`}
@@ -230,13 +256,57 @@ function GalleryTabs() {
                   <ArrowRight className="h-5 w-5" />
                 </div>
               </div>
-            </div>
+            </button>
           ))}
         </div>
       </div>
       <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
-        Use o scroll para explorar mais projetos
+        Use o scroll para ver mais · clique numa imagem para ampliar
       </p>
+
+      {lightboxIndex !== null && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in duration-200"
+          onClick={() => setLightboxIndex(null)}
+        >
+          <button
+            type="button"
+            aria-label="Fechar"
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
+            className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+          >
+            <X className="h-6 w-6" />
+          </button>
+          <button
+            type="button"
+            aria-label="Anterior"
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex((i) => (i === null ? i : (i - 1 + current.images.length) % current.images.length)); }}
+            className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          <button
+            type="button"
+            aria-label="Próxima"
+            onClick={(e) => { e.stopPropagation(); setLightboxIndex((i) => (i === null ? i : (i + 1) % current.images.length)); }}
+            className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+          <figure className="relative max-h-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
+            <img
+              src={current.images[lightboxIndex]}
+              alt={`${current.label} — projeto ${lightboxIndex + 1}`}
+              className="max-h-[85vh] w-auto rounded-md object-contain"
+            />
+            <figcaption className="mt-3 text-center font-display text-sm uppercase tracking-wider text-white/80">
+              {current.label} · {String(lightboxIndex + 1).padStart(2, "0")} / {String(current.images.length).padStart(2, "0")}
+            </figcaption>
+          </figure>
+        </div>
+      )}
     </div>
   );
 }
