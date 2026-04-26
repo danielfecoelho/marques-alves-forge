@@ -176,23 +176,58 @@ function Gallery() {
               Uma seleção de projetos executados para clientes residenciais, industriais e comerciais.
             </p>
           </div>
-          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-background hover:text-foreground">
+          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground shadow-sm hover:bg-background hover:text-foreground hover:shadow-[var(--shadow-glow)]">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
           </Button>
         </div>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {works.map((src, i) => (
-            <div key={i} className="group relative aspect-square overflow-hidden rounded-md bg-secondary">
+        <GalleryTabs />
+      </div>
+    </section>
+  );
+}
+
+function GalleryTabs() {
+  const [active, setActive] = useState<typeof galleryCategories[number]["id"]>(galleryCategories[0].id);
+  const current = galleryCategories.find((c) => c.id === active) ?? galleryCategories[0];
+  return (
+    <div className="mt-12">
+      <div className="flex flex-wrap gap-2 border-b border-border pb-4">
+        {galleryCategories.map((cat) => {
+          const isActive = cat.id === active;
+          return (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setActive(cat.id)}
+              className={`btn-accent-sweep rounded-md border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
+                isActive
+                  ? "border-foreground bg-foreground text-background shadow-[var(--shadow-glow)]"
+                  : "border-border bg-background text-foreground hover:bg-foreground hover:text-background"
+              }`}
+            >
+              {cat.label}
+            </button>
+          );
+        })}
+      </div>
+      <div
+        className="mt-8 max-h-[calc((100vw-3rem)*0.95)] overflow-y-auto pr-2 sm:max-h-[calc((100vw-3rem)/2*1.05+1rem)] lg:max-h-[calc((min(80rem,100vw)-3rem)/3+1rem)] [scrollbar-color:var(--accent)_transparent]"
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {current.images.map((src, i) => (
+            <div key={`${current.id}-${i}`} className="group relative aspect-square overflow-hidden rounded-md bg-secondary">
               <img
                 src={src}
-                alt={`Projeto ${i + 1}`}
+                alt={`${current.label} — projeto ${i + 1}`}
                 width={800}
                 height={800}
                 loading="lazy"
                 className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-50"
               />
               <div className="absolute inset-0 flex items-end justify-between p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="font-display text-lg font-semibold uppercase text-white">Projeto {String(i + 1).padStart(2, "0")}</span>
+                <span className="font-display text-lg font-semibold uppercase text-white">
+                  {current.label} {String(i + 1).padStart(2, "0")}
+                </span>
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <ArrowRight className="h-5 w-5" />
                 </div>
@@ -201,7 +236,10 @@ function Gallery() {
           ))}
         </div>
       </div>
-    </section>
+      <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
+        Use o scroll para explorar mais projetos
+      </p>
+    </div>
   );
 }
 
