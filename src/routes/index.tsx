@@ -30,8 +30,6 @@ const services = [
   { icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
 ];
 
-const works = [work1, work2, work3, work4, work5, work6];
-
 const galleryCategories = [
   {
     id: "amianto",
