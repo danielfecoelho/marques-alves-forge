@@ -1,4 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { useState } from "react";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
@@ -9,6 +10,7 @@ import work3 from "@/assets/work-3.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
+import work7 from "@/assets/work-7.jpg";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -28,7 +30,28 @@ const services = [
   { icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
 ];
 
-const works = [work1, work2, work3, work4, work5, work6];
+const galleryCategories = [
+  {
+    id: "amianto",
+    label: "Remoção de Amianto",
+    images: [work1, work3, work5, work2, work4, work6, work7, work1, work3, work5, work2, work4],
+  },
+  {
+    id: "estruturas",
+    label: "Estruturas Metálicas",
+    images: [work2, work4, work6, work7, work1, work3, work5, work2, work4, work6, work7, work1],
+  },
+  {
+    id: "fachadas",
+    label: "Revestimento de Fachadas",
+    images: [work3, work5, work7, work1, work2, work4, work6, work3, work5, work7, work1, work2],
+  },
+  {
+    id: "sandwich",
+    label: "Cobertura em Painel Sandwich",
+    images: [work4, work6, work2, work5, work7, work1, work3, work4, work6, work2, work5, work7],
+  },
+] as const;
 
 const advantages = [
   { icon: Hammer, title: "Orçamentos sem compromisso", desc: "Avaliação gratuita e proposta detalhada para o seu projeto." },
@@ -151,23 +174,58 @@ function Gallery() {
               Uma seleção de projetos executados para clientes residenciais, industriais e comerciais.
             </p>
           </div>
-          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-background hover:text-foreground">
+          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground shadow-sm hover:bg-background hover:text-foreground hover:shadow-[var(--shadow-glow)]">
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
           </Button>
         </div>
-        <div className="mt-12 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {works.map((src, i) => (
-            <div key={i} className="group relative aspect-square overflow-hidden rounded-md bg-secondary">
+        <GalleryTabs />
+      </div>
+    </section>
+  );
+}
+
+function GalleryTabs() {
+  const [active, setActive] = useState<typeof galleryCategories[number]["id"]>(galleryCategories[0].id);
+  const current = galleryCategories.find((c) => c.id === active) ?? galleryCategories[0];
+  return (
+    <div className="mt-12">
+      <div className="flex flex-wrap gap-2 border-b border-border pb-4">
+        {galleryCategories.map((cat) => {
+          const isActive = cat.id === active;
+          return (
+            <button
+              key={cat.id}
+              type="button"
+              onClick={() => setActive(cat.id)}
+              className={`btn-accent-sweep rounded-md border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
+                isActive
+                  ? "border-foreground bg-foreground text-background shadow-[var(--shadow-glow)]"
+                  : "border-border bg-background text-foreground hover:bg-foreground hover:text-background"
+              }`}
+            >
+              {cat.label}
+            </button>
+          );
+        })}
+      </div>
+      <div
+        className="mt-8 max-h-[calc((100vw-3rem)*0.95)] overflow-y-auto pr-2 sm:max-h-[calc((100vw-3rem)/2*1.05+1rem)] lg:max-h-[calc((min(80rem,100vw)-3rem)/3+1rem)] [scrollbar-color:var(--accent)_transparent]"
+      >
+        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {current.images.map((src, i) => (
+            <div key={`${current.id}-${i}`} className="group relative aspect-square overflow-hidden rounded-md bg-secondary">
               <img
                 src={src}
-                alt={`Projeto ${i + 1}`}
+                alt={`${current.label} — projeto ${i + 1}`}
                 width={800}
                 height={800}
                 loading="lazy"
                 className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-50"
               />
               <div className="absolute inset-0 flex items-end justify-between p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="font-display text-lg font-semibold uppercase text-white">Projeto {String(i + 1).padStart(2, "0")}</span>
+                <span className="font-display text-lg font-semibold uppercase text-white">
+                  {current.label} {String(i + 1).padStart(2, "0")}
+                </span>
                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
                   <ArrowRight className="h-5 w-5" />
                 </div>
@@ -176,7 +234,10 @@ function Gallery() {
           ))}
         </div>
       </div>
-    </section>
+      <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
+        Use o scroll para explorar mais projetos
+      </p>
+    </div>
   );
 }
 
@@ -192,7 +253,7 @@ function WhyUs() {
           <div>
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Porquê escolher-nos</span>
             <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
-              Confiança construída <span className="relative inline-block text-white"><span className="relative z-10">aço a aço</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
+              Construímos <span className="relative inline-block text-white"><span className="relative z-10">solidez e segurança</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75">
               A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
