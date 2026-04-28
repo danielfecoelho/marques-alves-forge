@@ -60,8 +60,27 @@ const advantages = [
 ];
 
 function Header() {
+  const [hidden, setHidden] = useState(false);
+
+  useEffect(() => {
+    let lastY = typeof window !== "undefined" ? window.scrollY : 0;
+    const onScroll = () => {
+      const y = window.scrollY;
+      if (y > lastY && y > 80) {
+        setHidden(true);
+      } else if (y < lastY) {
+        setHidden(false);
+      }
+      lastY = y;
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
+    <header
+      className={`fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md transition-transform duration-300 ${hidden ? "-translate-y-full" : "translate-y-0"}`}
+    >
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
         <a href="#top" aria-label="Serralharia Marques Alves — voltar ao início" className="flex items-center">
           <img src={logo} alt="Serralharia Marques Alves" className="h-10 w-auto rounded-sm md:h-12" />
