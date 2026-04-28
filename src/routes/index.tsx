@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award, X, ChevronLeft, ChevronRight } from "lucide-react";
+import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award, X, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
 import logo from "@/assets/logo-original.png";
@@ -188,9 +188,13 @@ function GalleryTabs() {
   const [active, setActive] = useState<typeof galleryCategories[number]["id"]>(galleryCategories[0].id);
   const current = galleryCategories.find((c) => c.id === active) ?? galleryCategories[0];
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const [showAll, setShowAll] = useState(false);
+  const INITIAL_COUNT = 6;
+  const visibleImages = showAll ? current.images : current.images.slice(0, INITIAL_COUNT);
 
   useEffect(() => {
     setLightboxIndex(null);
+    setShowAll(false);
   }, [active]);
 
   useEffect(() => {
@@ -229,40 +233,48 @@ function GalleryTabs() {
           );
         })}
       </div>
-      <div
-        className="mt-8 max-h-[calc((100vw-3rem)+1rem)] overflow-y-auto pr-2 sm:max-h-[calc((100vw-3rem)/2+1rem)] lg:max-h-[calc((min(80rem,100vw)-3rem)/3+1rem)] [scrollbar-color:var(--accent)_transparent]"
-      >
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {current.images.map((src, i) => (
-            <button
-              key={`${current.id}-${i}`}
-              type="button"
-              onClick={() => setLightboxIndex(i)}
-              className="group relative aspect-square overflow-hidden rounded-md bg-secondary text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
-            >
-              <img
-                src={src}
-                alt={`${current.label} — projeto ${i + 1}`}
-                width={800}
-                height={800}
-                loading="lazy"
-                className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-50"
-              />
-              <div className="absolute inset-0 flex items-end justify-between p-5 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                <span className="font-display text-lg font-semibold uppercase text-white">
-                  {current.label} {String(i + 1).padStart(2, "0")}
-                </span>
-                <div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                  <ArrowRight className="h-5 w-5" />
-                </div>
+      <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
+        {visibleImages.map((src, i) => (
+          <button
+            key={`${current.id}-${i}`}
+            type="button"
+            onClick={() => setLightboxIndex(i)}
+            className="group relative aspect-square overflow-hidden rounded-md bg-secondary text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          >
+            <img
+              src={src}
+              alt={`${current.label} — projeto ${i + 1}`}
+              width={800}
+              height={800}
+              loading="lazy"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/60 group-hover:opacity-100">
+              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-black shadow-lg">
+                <Search className="h-6 w-6" />
               </div>
-            </button>
-          ))}
-        </div>
+            </div>
+            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <span className="font-display text-sm font-semibold uppercase text-white">
+                {current.label} {String(i + 1).padStart(2, "0")}
+              </span>
+            </div>
+          </button>
+        ))}
       </div>
-      <p className="mt-3 text-xs uppercase tracking-wider text-muted-foreground">
-        Use o scroll para ver mais · clique numa imagem para ampliar
-      </p>
+      {current.images.length > INITIAL_COUNT && (
+        <div className="mt-10 flex justify-center">
+          <Button
+            type="button"
+            onClick={() => setShowAll((v) => !v)}
+            variant="outline"
+            size="lg"
+            className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-foreground hover:text-background"
+          >
+            {showAll ? "Ver Menos" : "Ver Mais Projetos"}
+          </Button>
+        </div>
+      )}
 
       {lightboxIndex !== null && (
         <div
