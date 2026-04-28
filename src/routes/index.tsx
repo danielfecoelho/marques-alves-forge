@@ -197,31 +197,23 @@ function Gallery() {
             <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
           </Button>
         </div>
-        <GalleryTabs />
+        <GalleryAlbums />
       </div>
     </section>
   );
 }
 
-function GalleryTabs() {
-  const [active, setActive] = useState<typeof galleryCategories[number]["id"]>(galleryCategories[0].id);
-  const current = galleryCategories.find((c) => c.id === active) ?? galleryCategories[0];
-  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
-  const [showAll, setShowAll] = useState(false);
-  const INITIAL_COUNT = 6;
-  const visibleImages = showAll ? current.images : current.images.slice(0, INITIAL_COUNT);
+function GalleryAlbums() {
+  const [activeAlbum, setActiveAlbum] = useState<string | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number>(0);
+  const current = galleryCategories.find((c) => c.id === activeAlbum) ?? null;
 
   useEffect(() => {
-    setLightboxIndex(null);
-    setShowAll(false);
-  }, [active]);
-
-  useEffect(() => {
-    if (lightboxIndex === null) return;
+    if (!current) return;
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setLightboxIndex(null);
-      if (e.key === "ArrowRight") setLightboxIndex((i) => (i === null ? i : (i + 1) % current.images.length));
-      if (e.key === "ArrowLeft") setLightboxIndex((i) => (i === null ? i : (i - 1 + current.images.length) % current.images.length));
+      if (e.key === "Escape") setActiveAlbum(null);
+      if (e.key === "ArrowRight") setLightboxIndex((i) => (i + 1) % current.images.length);
+      if (e.key === "ArrowLeft") setLightboxIndex((i) => (i - 1 + current.images.length) % current.images.length);
     };
     window.addEventListener("keydown", onKey);
     document.body.style.overflow = "hidden";
@@ -229,113 +221,116 @@ function GalleryTabs() {
       window.removeEventListener("keydown", onKey);
       document.body.style.overflow = "";
     };
-  }, [lightboxIndex, current.images.length]);
+  }, [current]);
+
+  const openAlbum = (id: string) => {
+    setActiveAlbum(id);
+    setLightboxIndex(0);
+  };
 
   return (
     <div className="mt-12">
-      <div className="sticky top-0 z-30 -mx-6 flex flex-wrap gap-2 border-b border-border bg-muted px-6 py-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.15)]">
-        {galleryCategories.map((cat) => {
-          const isActive = cat.id === active;
-          return (
-            <button
-              key={cat.id}
-              type="button"
-              onClick={() => setActive(cat.id)}
-              className={`btn-accent-sweep rounded-md border px-4 py-2 text-xs font-semibold uppercase tracking-wider transition-colors ${
-                isActive
-                  ? "border-foreground bg-foreground text-background shadow-[var(--shadow-glow)]"
-                  : "border-border bg-background text-foreground hover:bg-foreground hover:text-background"
-              }`}
-            >
-              {cat.label}
-            </button>
-          );
-        })}
-      </div>
-      <div className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-3">
-        {visibleImages.map((src, i) => (
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
+        {galleryCategories.map((cat) => (
           <button
-            key={`${current.id}-${i}`}
+            key={cat.id}
             type="button"
-            onClick={() => setLightboxIndex(i)}
-            className="group relative aspect-square overflow-hidden rounded-md bg-secondary text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+            onClick={() => openAlbum(cat.id)}
+            className="group relative aspect-[4/3] overflow-hidden rounded-md bg-secondary text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-primary"
           >
             <img
-              src={src}
-              alt={`${current.label} — projeto ${i + 1}`}
-              width={800}
-              height={800}
+              src={cat.images[0]}
+              alt={`Álbum ${cat.label}`}
+              width={1200}
+              height={900}
               loading="lazy"
-              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/0 opacity-0 transition-all duration-300 group-hover:bg-black/60 group-hover:opacity-100">
-              <div className="flex h-14 w-14 items-center justify-center rounded-full bg-white/95 text-black shadow-lg">
-                <Search className="h-6 w-6" />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 transition-opacity duration-300 group-hover:from-black/90" />
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
+              <div>
+                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+                  {cat.images.length} fotos
+                </span>
+                <h3 className="mt-2 font-display text-2xl font-bold uppercase text-white md:text-3xl">
+                  {cat.label}
+                </h3>
               </div>
-            </div>
-            <div className="absolute inset-x-0 bottom-0 flex items-center justify-between p-4 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-              <span className="font-display text-sm font-semibold uppercase text-white">
-                {current.label} {String(i + 1).padStart(2, "0")}
+              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/95 text-black shadow-lg transition-transform duration-300 group-hover:scale-110">
+                <Search className="h-5 w-5" />
               </span>
             </div>
           </button>
         ))}
       </div>
-      {current.images.length > INITIAL_COUNT && (
-        <div className="mt-10 flex justify-center">
-          <Button
-            type="button"
-            onClick={() => setShowAll((v) => !v)}
-            variant="outline"
-            size="lg"
-            className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-foreground hover:text-background"
-          >
-            {showAll ? "Ver Menos" : "Ver Mais Projetos"}
-          </Button>
-        </div>
-      )}
 
-      {lightboxIndex !== null && (
+      {current && (
         <div
           role="dialog"
           aria-modal="true"
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4 animate-in fade-in duration-200"
-          onClick={() => setLightboxIndex(null)}
+          className="fixed inset-0 z-50 flex flex-col bg-black/95 animate-in fade-in duration-200"
+          onClick={() => setActiveAlbum(null)}
         >
-          <button
-            type="button"
-            aria-label="Fechar"
-            onClick={(e) => { e.stopPropagation(); setLightboxIndex(null); }}
-            className="absolute right-4 top-4 flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-          >
-            <X className="h-6 w-6" />
-          </button>
-          <button
-            type="button"
-            aria-label="Anterior"
-            onClick={(e) => { e.stopPropagation(); setLightboxIndex((i) => (i === null ? i : (i - 1 + current.images.length) % current.images.length)); }}
-            className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-          >
-            <ChevronLeft className="h-6 w-6" />
-          </button>
-          <button
-            type="button"
-            aria-label="Próxima"
-            onClick={(e) => { e.stopPropagation(); setLightboxIndex((i) => (i === null ? i : (i + 1) % current.images.length)); }}
-            className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
-          >
-            <ChevronRight className="h-6 w-6" />
-          </button>
-          <figure className="relative max-h-full max-w-6xl" onClick={(e) => e.stopPropagation()}>
-            <img
-              src={current.images[lightboxIndex]}
-              alt={`${current.label} — projeto ${lightboxIndex + 1}`}
-              className="max-h-[85vh] w-auto rounded-md object-contain"
-            />
-            <figcaption className="mt-3 text-center font-display text-sm uppercase tracking-wider text-white/80">
-              {current.label} · {String(lightboxIndex + 1).padStart(2, "0")} / {String(current.images.length).padStart(2, "0")}
-            </figcaption>
-          </figure>
+          <div className="flex items-center justify-between border-b border-white/10 px-6 py-4" onClick={(e) => e.stopPropagation()}>
+            <div>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/60">Álbum</span>
+              <h3 className="font-display text-lg font-bold uppercase text-white md:text-xl">{current.label}</h3>
+            </div>
+            <button
+              type="button"
+              aria-label="Fechar álbum"
+              onClick={() => setActiveAlbum(null)}
+              className="flex h-12 w-12 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            >
+              <X className="h-6 w-6" />
+            </button>
+          </div>
+
+          <div className="relative flex flex-1 items-center justify-center p-4" onClick={(e) => e.stopPropagation()}>
+            <button
+              type="button"
+              aria-label="Anterior"
+              onClick={() => setLightboxIndex((i) => (i - 1 + current.images.length) % current.images.length)}
+              className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              type="button"
+              aria-label="Próxima"
+              onClick={() => setLightboxIndex((i) => (i + 1) % current.images.length)}
+              className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/10 text-white transition-colors hover:bg-white/20"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+            <figure className="flex max-h-full max-w-6xl flex-col items-center">
+              <img
+                src={current.images[lightboxIndex]}
+                alt={`${current.label} — foto ${lightboxIndex + 1}`}
+                className="max-h-[70vh] w-auto rounded-md object-contain"
+              />
+              <figcaption className="mt-3 text-center font-display text-sm uppercase tracking-wider text-white/80">
+                {String(lightboxIndex + 1).padStart(2, "0")} / {String(current.images.length).padStart(2, "0")}
+              </figcaption>
+            </figure>
+          </div>
+
+          <div className="border-t border-white/10 p-4" onClick={(e) => e.stopPropagation()}>
+            <div className="mx-auto flex max-w-6xl gap-2 overflow-x-auto pb-1">
+              {current.images.map((src, i) => (
+                <button
+                  key={`${current.id}-thumb-${i}`}
+                  type="button"
+                  onClick={() => setLightboxIndex(i)}
+                  className={`relative h-16 w-20 shrink-0 overflow-hidden rounded-sm border-2 transition-colors ${
+                    i === lightboxIndex ? "border-white" : "border-transparent opacity-60 hover:opacity-100"
+                  }`}
+                >
+                  <img src={src} alt="" className="h-full w-full object-cover" />
+                </button>
+              ))}
+            </div>
+          </div>
         </div>
       )}
     </div>
