@@ -214,7 +214,7 @@ function GalleryTabs() {
 
   return (
     <div className="mt-12">
-      <div className="flex flex-wrap gap-2 border-b border-border pb-4">
+      <div className="sticky top-0 z-30 -mx-6 flex flex-wrap gap-2 border-b border-border bg-muted px-6 py-4 shadow-[0_4px_12px_-4px_rgba(0,0,0,0.15)]">
         {galleryCategories.map((cat) => {
           const isActive = cat.id === active;
           return (
