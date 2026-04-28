@@ -513,7 +513,7 @@ function Index() {
   return (
     <div className="min-h-screen bg-background">
       <Header />
-      <main>
+      <main className="pt-16">
         <Hero />
         <Services />
         <Gallery />
