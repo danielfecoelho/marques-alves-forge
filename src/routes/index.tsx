@@ -81,7 +81,7 @@ function Header() {
           <a href="#contacto" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contacto</a>
         </nav>
         <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
             <MessageCircle className="h-4 w-4" /> Pedir Orçamento
           </a>
         </Button>
@@ -111,7 +111,7 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
-              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
                 Pedir Orçamento Grátis <ArrowRight className="h-5 w-5" />
               </a>
             </Button>
@@ -183,7 +183,7 @@ function Gallery() {
             </p>
           </div>
           <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-background hover:text-foreground">
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>Solicitar projeto semelhante</a>
           </Button>
         </div>
         <GalleryAlbums />
@@ -396,7 +396,7 @@ function Contact() {
                     <div className="text-base font-medium">{EMAIL}</div>
                   </div>
                 </a>
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" onClick={openExternal(MAPS_URL)} className="group flex items-center gap-4">
                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <MapPin className="h-5 w-5" />
                   </div>
@@ -416,7 +416,7 @@ function Contact() {
                 </div>
               </div>
               <Button asChild size="lg" className="btn-accent-sweep mt-10 h-14 w-full bg-[#25D366] px-8 text-base text-white hover:bg-[#1faa54]">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
                   <MessageCircle className="h-5 w-5" /> Conversar no WhatsApp
                 </a>
               </Button>
