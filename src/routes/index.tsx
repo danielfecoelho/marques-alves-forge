@@ -26,6 +26,11 @@ const ADDRESS = "Rua de Real, 4765-148 Pedome";
 const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Rua de Real, 4765-148 Pedome");
 const SCHEDULE = "Seg a Sex · 07:00 – 18:00";
 
+const openExternal = (url: string) => (e: React.MouseEvent) => {
+  e.preventDefault();
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 const services = [
   { icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
   { icon: HardHat, title: "Coberturas em Painel Sandwich", desc: "Revestimentos de coberturas em painel sandwich, novos ou recuperados, com execução rápida." },
@@ -76,7 +81,7 @@ function Header() {
           <a href="#contacto" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contacto</a>
         </nav>
         <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
             <MessageCircle className="h-4 w-4" /> Pedir Orçamento
           </a>
         </Button>
@@ -106,7 +111,7 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
-              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
                 Pedir Orçamento Grátis <ArrowRight className="h-5 w-5" />
               </a>
             </Button>
@@ -178,7 +183,7 @@ function Gallery() {
             </p>
           </div>
           <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-background hover:text-foreground">
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">Solicitar projeto semelhante</a>
+            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>Solicitar projeto semelhante</a>
           </Button>
         </div>
         <GalleryAlbums />
@@ -391,7 +396,7 @@ function Contact() {
                     <div className="text-base font-medium">{EMAIL}</div>
                   </div>
                 </a>
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" onClick={openExternal(MAPS_URL)} className="group flex items-center gap-4">
                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <MapPin className="h-5 w-5" />
                   </div>
@@ -411,7 +416,7 @@ function Contact() {
                 </div>
               </div>
               <Button asChild size="lg" className="btn-accent-sweep mt-10 h-14 w-full bg-[#25D366] px-8 text-base text-white hover:bg-[#1faa54]">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer">
+                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
                   <MessageCircle className="h-5 w-5" /> Conversar no WhatsApp
                 </a>
               </Button>
@@ -569,6 +574,7 @@ function FloatingWhatsApp() {
       href={WHATSAPP}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={openExternal(WHATSAPP)}
       aria-label="Conversar no WhatsApp"
       className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-industrial)] transition-transform hover:scale-110"
     >
