@@ -26,6 +26,11 @@ const ADDRESS = "Rua de Real, 4765-148 Pedome";
 const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Rua de Real, 4765-148 Pedome");
 const SCHEDULE = "Seg a Sex · 07:00 – 18:00";
 
+const openExternal = (url: string) => (e: React.MouseEvent) => {
+  e.preventDefault();
+  window.open(url, "_blank", "noopener,noreferrer");
+};
+
 const services = [
   { icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
   { icon: HardHat, title: "Coberturas em Painel Sandwich", desc: "Revestimentos de coberturas em painel sandwich, novos ou recuperados, com execução rápida." },
