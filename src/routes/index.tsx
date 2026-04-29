@@ -416,44 +416,7 @@ function Contact() {
                 </a>
               </Button>
             </div>
-            <form className="space-y-5 p-10 md:p-14" onSubmit={(e) => { e.preventDefault(); window.open(WHATSAPP, "_blank"); }}>
-              <h3 className="font-display text-2xl font-bold uppercase text-foreground">Pedido de orçamento</h3>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nome</label>
-                  <input required className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none" />
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Telefone</label>
-                  <input required className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none" />
-                </div>
-              </div>
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</label>
-                <input type="email" className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none" />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tipo de Trabalho</label>
-                <select className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none">
-                  <option>Remoção de Amianto</option>
-                  <option>Coberturas em Painel Sandwich</option>
-                  <option>Revestimento de Fachadas</option>
-                  <option>Estruturas Metálicas</option>
-                  <option>Venda de Painéis / Ferro</option>
-                  <option>Outro</option>
-                </select>
-              </div>
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Descreva o seu projeto</label>
-                <textarea rows={4} className="w-full rounded-md border border-input bg-background p-4 text-sm focus:border-primary focus:outline-none" />
-              </div>
-              <Button type="submit" size="lg" className="btn-accent-sweep h-14 w-full text-base">
-                Enviar Pedido <ArrowRight className="h-5 w-5" />
-              </Button>
-              <p className="flex items-center gap-2 text-xs text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Sem compromisso. Resposta em menos de 24h.
-              </p>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>
