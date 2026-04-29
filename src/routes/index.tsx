@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { z } from "zod";
+import { toast } from "sonner";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award, X, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
@@ -21,6 +23,7 @@ const PHONE_RAW = "+351916328909";
 const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const EMAIL = "geral@serralhariamarquesalves.pt";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Rua de Real, 4765-148 Pedome");
 const SCHEDULE = "Seg a Sex · 07:00 – 18:00";
 
 const services = [
@@ -388,7 +391,7 @@ function Contact() {
                     <div className="text-base font-medium">{EMAIL}</div>
                   </div>
                 </a>
-                <a href="https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Rua+de+Real+Pedome" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
                     <MapPin className="h-5 w-5" />
                   </div>
@@ -413,44 +416,7 @@ function Contact() {
                 </a>
               </Button>
             </div>
-            <form className="space-y-5 p-10 md:p-14" onSubmit={(e) => { e.preventDefault(); window.open(WHATSAPP, "_blank"); }}>
-              <h3 className="font-display text-2xl font-bold uppercase text-foreground">Pedido de orçamento</h3>
-              <div className="grid gap-4 sm:grid-cols-2">
-                <div>
-                  <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nome</label>
-                  <input required className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none" />
-                </div>
-                <div>
-                  <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Telefone</label>
-                  <input required className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none" />
-                </div>
-              </div>
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</label>
-                <input type="email" className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none" />
-              </div>
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tipo de Trabalho</label>
-                <select className="h-12 w-full rounded-md border border-input bg-background px-4 text-sm focus:border-primary focus:outline-none">
-                  <option>Remoção de Amianto</option>
-                  <option>Coberturas em Painel Sandwich</option>
-                  <option>Revestimento de Fachadas</option>
-                  <option>Estruturas Metálicas</option>
-                  <option>Venda de Painéis / Ferro</option>
-                  <option>Outro</option>
-                </select>
-              </div>
-              <div>
-                <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Descreva o seu projeto</label>
-                <textarea rows={4} className="w-full rounded-md border border-input bg-background p-4 text-sm focus:border-primary focus:outline-none" />
-              </div>
-              <Button type="submit" size="lg" className="btn-accent-sweep h-14 w-full text-base">
-                Enviar Pedido <ArrowRight className="h-5 w-5" />
-              </Button>
-              <p className="flex items-center gap-2 text-xs text-muted-foreground">
-                <CheckCircle2 className="h-4 w-4 text-primary" /> Sem compromisso. Resposta em menos de 24h.
-              </p>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </div>
@@ -459,6 +425,132 @@ function Contact() {
 }
 
 function Footer() {
+  return _Footer();
+}
+
+const contactFormSchema = z.object({
+  name: z.string().trim().min(1, "Nome obrigatório").max(100),
+  phone: z.string().trim().min(6, "Telefone inválido").max(30),
+  email: z.union([z.literal(""), z.string().trim().email("Email inválido").max(255)]),
+  workType: z.string().trim().min(1).max(100),
+  message: z.string().trim().max(2000).optional(),
+});
+
+type ContactErrors = Partial<Record<"name" | "phone" | "email" | "workType" | "message", string>>;
+
+function ContactForm() {
+  const [values, setValues] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    workType: "Remoção de Amianto",
+    message: "",
+  });
+  const [errors, setErrors] = useState<ContactErrors>({});
+  const [submitting, setSubmitting] = useState(false);
+
+  const update = (k: keyof typeof values) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+    setValues((v) => ({ ...v, [k]: e.target.value }));
+  };
+
+  const onSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = contactFormSchema.safeParse(values);
+    if (!result.success) {
+      const flat = result.error.flatten().fieldErrors;
+      const next: ContactErrors = {};
+      (Object.keys(flat) as Array<keyof typeof flat>).forEach((k) => {
+        const msg = flat[k]?.[0];
+        if (msg) next[k as keyof ContactErrors] = msg;
+      });
+      setErrors(next);
+      toast.error("Verifique os campos do formulário.");
+      return;
+    }
+    setErrors({});
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(result.data),
+      });
+      if (!res.ok) throw new Error("send failed");
+      toast.success("Pedido enviado!", {
+        description: "Entraremos em contacto em menos de 24h.",
+      });
+      setValues({ name: "", phone: "", email: "", workType: "Remoção de Amianto", message: "" });
+    } catch {
+      toast.error("Não foi possível enviar", {
+        description: "Tente novamente ou contacte-nos por WhatsApp.",
+      });
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
+  const fieldClass = (err?: string) =>
+    `h-12 w-full rounded-md border bg-background px-4 text-sm focus:outline-none transition-colors ${
+      err ? "border-destructive focus:border-destructive" : "border-input focus:border-primary"
+    }`;
+
+  return (
+    <form
+      className="space-y-5 p-10 md:p-14 animate-fade-in"
+      onSubmit={onSubmit}
+      noValidate
+    >
+      <h3 className="font-display text-2xl font-bold uppercase text-foreground">Pedido de orçamento</h3>
+      <div className="grid gap-4 sm:grid-cols-2">
+        <div>
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nome *</label>
+          <input value={values.name} onChange={update("name")} className={fieldClass(errors.name)} />
+          {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
+        </div>
+        <div>
+          <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Telefone *</label>
+          <input value={values.phone} onChange={update("phone")} className={fieldClass(errors.phone)} />
+          {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
+        </div>
+      </div>
+      <div>
+        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</label>
+        <input type="email" value={values.email} onChange={update("email")} className={fieldClass(errors.email)} />
+        {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
+      </div>
+      <div>
+        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tipo de Trabalho</label>
+        <select value={values.workType} onChange={update("workType")} className={fieldClass(errors.workType)}>
+          <option>Remoção de Amianto</option>
+          <option>Coberturas em Painel Sandwich</option>
+          <option>Revestimento de Fachadas</option>
+          <option>Estruturas Metálicas</option>
+          <option>Venda de Painéis / Ferro</option>
+          <option>Outro</option>
+        </select>
+      </div>
+      <div>
+        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Descreva o seu projeto</label>
+        <textarea
+          rows={4}
+          value={values.message}
+          onChange={update("message")}
+          className={`w-full rounded-md border bg-background p-4 text-sm focus:outline-none transition-colors ${
+            errors.message ? "border-destructive focus:border-destructive" : "border-input focus:border-primary"
+          }`}
+        />
+      </div>
+      <Button type="submit" size="lg" disabled={submitting} className="btn-accent-sweep h-14 w-full text-base">
+        {submitting ? "A enviar..." : (<>Enviar Pedido <ArrowRight className="h-5 w-5" /></>)}
+      </Button>
+      <p className="flex items-center gap-2 text-xs text-muted-foreground">
+        <CheckCircle2 className="h-4 w-4 text-primary" /> Sem compromisso. Resposta em menos de 24h.
+      </p>
+    </form>
+  );
+}
+
+function _Footer() {
   return (
     <footer className="border-t border-border bg-secondary py-10 text-secondary-foreground">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
