@@ -373,8 +373,8 @@ function Contact() {
                 Resposta rápida em menos de 24 horas. Ligue, envie mensagem ou visite-nos.
               </p>
               <div className="mt-8 space-y-5">
-                <a href={`tel:${PHONE_RAW}`} className="flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
+                <a href={`tel:${PHONE_RAW}`} className="group flex items-center gap-4">
+                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
@@ -382,8 +382,8 @@ function Contact() {
                     <div className="font-display text-2xl font-semibold">{PHONE}</div>
                   </div>
                 </a>
-                <a href={`mailto:${EMAIL}`} className="flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
+                <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
+                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
                   </div>
                   <div>
@@ -391,8 +391,8 @@ function Contact() {
                     <div className="text-base font-medium">{EMAIL}</div>
                   </div>
                 </a>
-                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="group flex items-center gap-4">
+                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <MapPin className="h-5 w-5" />
                   </div>
                   <div>
