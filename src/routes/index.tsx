@@ -391,7 +391,7 @@ function Contact() {
                     <div className="text-base font-medium">{EMAIL}</div>
                   </div>
                 </a>
-                <a href="https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Rua+de+Real+Pedome" target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
+                <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" className="flex items-center gap-4">
                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
                     <MapPin className="h-5 w-5" />
                   </div>
