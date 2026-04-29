@@ -21,7 +21,7 @@ function escapeHtml(s: string) {
     .replace(/'/g, "&#039;");
 }
 
-export const Route = createFileRoute("/api/contact")({
+export const Route = createFileRoute("/api/public/contact")({
   server: {
     handlers: {
       POST: async ({ request }) => {
