@@ -1,5 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
+import { z } from "zod";
+import { toast } from "sonner";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award, X, ChevronLeft, ChevronRight, Search } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
@@ -21,6 +23,7 @@ const PHONE_RAW = "+351916328909";
 const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const EMAIL = "geral@serralhariamarquesalves.pt";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Rua de Real, 4765-148 Pedome");
 const SCHEDULE = "Seg a Sex · 07:00 – 18:00";
 
 const services = [
