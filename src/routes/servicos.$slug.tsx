@@ -203,7 +203,7 @@ function FloatingWhatsApp() {
 }
 
 function ServicePage() {
-  const { data } = Route.useLoaderData();
+  const { data } = Route.useLoaderData() as { data: ServiceContent };
   const Icon = data.icon;
 
   return (
