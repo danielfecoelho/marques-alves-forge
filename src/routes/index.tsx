@@ -100,7 +100,7 @@ function Hero() {
       </div>
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
         <div className="max-w-3xl">
-          <p className="text-base font-medium text-white/90 md:text-lg">
+          <p className="font-display text-xs font-medium uppercase tracking-[0.18em] text-white/70 md:text-sm">
             Serralharia em Pedome · ao serviço de todo o país
           </p>
           <h1 className="mt-5 font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground md:text-7xl">
