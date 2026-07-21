@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
@@ -32,10 +32,10 @@ const openExternal = (url: string) => (e: React.MouseEvent) => {
 };
 
 const services = [
-  { icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
-  { icon: HardHat, title: "Coberturas em Painel Sandwich", desc: "Revestimentos de coberturas em painel sandwich, novos ou recuperados, com execução rápida." },
-  { icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, armazéns e estruturas industriais executadas com precisão e robustez." },
-  { icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
+  { slug: "remocao-amianto", icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
+  { slug: "coberturas-painel-sandwich", icon: HardHat, title: "Coberturas em Painel Sandwich", desc: "Revestimentos de coberturas em painel sandwich, novos ou recuperados, com execução rápida." },
+  { slug: "estruturas-metalicas", icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, armazéns e estruturas industriais executadas com precisão e robustez." },
+  { slug: "revestimento-fachadas", icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
 ];
 
 const galleryCategories = [
@@ -154,13 +154,21 @@ function Services() {
         </div>
         <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
-            <div key={s.title} className="group relative overflow-hidden rounded-md border border-secondary/20 bg-secondary p-7 text-secondary-foreground transition-all hover:-translate-y-1 hover:border-accent hover:shadow-[var(--shadow-industrial)]">
+            <Link
+              key={s.slug}
+              to="/servicos/$slug"
+              params={{ slug: s.slug }}
+              className="group relative flex flex-col overflow-hidden rounded-md border border-secondary/20 bg-secondary p-7 text-left text-secondary-foreground transition-all hover:-translate-y-1 hover:border-accent hover:shadow-[var(--shadow-industrial)] focus:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+            >
               <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-black">
                 <s.icon className="h-6 w-6" />
               </div>
               <h3 className="mt-5 font-display text-xl font-semibold uppercase">{s.title}</h3>
               <p className="mt-2 text-sm leading-relaxed text-secondary-foreground/70">{s.desc}</p>
-            </div>
+              <span className="mt-5 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-white/80 transition-colors group-hover:text-accent">
+                Saber mais <ArrowRight className="h-4 w-4" />
+              </span>
+            </Link>
           ))}
         </div>
       </div>
