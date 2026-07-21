@@ -99,7 +99,7 @@ function Hero() {
         <div className="absolute inset-0 bg-secondary/7" />
       </div>
       <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
-        <div className="max_aux max-w-3xl">
+        <div className="max-w-3xl">
           <p className="text-base font-medium text-white/90 md:text-lg">
             Serralharia em Pedome · ao serviço de todo o país
           </p>
