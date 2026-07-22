@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, MessageCircle, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, MessageCircle, Phone, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import heroImage from "@/assets/hero-technician.jpg";
