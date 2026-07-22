@@ -351,6 +351,11 @@ function WhyUs() {
             <p className="mt-5 text-secondary-foreground/75 text-justify">
               A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
             </p>
+            <div className="mt-8 flex justify-center lg:justify-start">
+              <Button asChild size="lg" className="btn-accent-sweep h-12 bg-white px-7 text-sm text-black hover:bg-white/90">
+                <Link to="/sobre">Conhecer a empresa <ArrowRight className="h-5 w-5" /></Link>
+              </Button>
+            </div>
           </div>
           <div className="space-y-5">
             {advantages.map((a) => (
