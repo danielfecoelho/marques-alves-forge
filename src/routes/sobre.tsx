@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, MessageCircle, Phone, Mail, MapPin, Clock, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck, CheckCircle2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, MessageCircle, Phone, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import heroImage from "@/assets/hero-technician.jpg";
@@ -235,80 +235,27 @@ function SobrePage() {
                 </div>
               ))}
             </div>
-            <ul className="mt-10 grid gap-3 text-sm text-muted-foreground sm:grid-cols-2">
-              {["Orçamentos gratuitos e sem compromisso", "Equipas certificadas para amianto", "Materiais com garantia", "Assistência pós-obra"].map((item) => (
-                <li key={item} className="flex items-center gap-3">
-                  <CheckCircle2 className="h-5 w-5 text-accent" />
-                  {item}
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
-        {/* Contact strip */}
-        <section className="bg-secondary py-20 text-secondary-foreground">
-          <div className="mx-auto max-w-7xl px-6">
-            <div className="grid gap-10 lg:grid-cols-[1.2fr_1fr] lg:items-center">
-              <div>
-                <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Onde nos encontra</span>
-                <h2 className="mt-3 font-display text-3xl font-bold uppercase md:text-4xl">Passe pela oficina em Pedome</h2>
-                <p className="mt-4 text-secondary-foreground/75">
-                  A porta está aberta para conhecer o trabalho, ver materiais em stock e falarmos sobre o seu projeto.
-                </p>
-                <div className="mt-8 grid gap-5 sm:grid-cols-2">
-                  <a href={`tel:${PHONE_RAW}`} className="group flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
-                      <Phone className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
-                      <div className="font-display text-xl font-semibold">{PHONE}</div>
-                    </div>
-                  </a>
-                  <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
-                      <Mail className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Email</div>
-                      <div className="text-sm font-medium">{EMAIL}</div>
-                    </div>
-                  </a>
-                  <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" onClick={openExternal(MAPS_URL)} className="group flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
-                      <MapPin className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Morada</div>
-                      <div className="text-sm font-medium">{ADDRESS}</div>
-                    </div>
-                  </a>
-                  <div className="flex items-center gap-4">
-                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
-                      <Clock className="h-5 w-5" />
-                    </div>
-                    <div>
-                      <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Horário</div>
-                      <div className="text-sm font-medium">Seg a Sex · 07:00 – 18:00</div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col gap-4 rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.03] p-8">
-                <h3 className="font-display text-2xl font-bold uppercase">Pronto para começar?</h3>
-                <p className="text-sm text-secondary-foreground/70">
-                  Envie-nos o seu pedido de orçamento. Resposta em menos de 24 horas.
-                </p>
-                <Button asChild size="lg" className="btn-accent-sweep h-14 bg-[#25D366] text-white hover:bg-[#1faa54]">
-                  <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
-                    <MessageCircle className="h-5 w-5" /> Conversar no WhatsApp
-                  </a>
-                </Button>
-                <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 border-secondary-foreground/30 bg-transparent text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground">
-                  <Link to="/" hash="contacto">Enviar pedido <ArrowRight className="h-5 w-5" /></Link>
-                </Button>
-              </div>
+        {/* Final CTA */}
+        <section className="bg-background py-20">
+          <div className="mx-auto max-w-4xl px-6 text-center">
+            <h2 className="font-display text-3xl font-bold uppercase text-foreground md:text-4xl">
+              Pronto para avançar com o seu projeto?
+            </h2>
+            <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
+              Peça um orçamento gratuito e sem compromisso. Resposta em menos de 24 horas.
+            </p>
+            <div className="mt-8 flex flex-wrap justify-center gap-4">
+              <Button asChild size="lg" className="btn-accent-sweep h-14 px-8 text-base">
+                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
+                  <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
+                </a>
+              </Button>
+              <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 px-8 text-base">
+                <Link to="/" hash="contacto">Enviar pedido <ArrowRight className="h-5 w-5" /></Link>
+              </Button>
             </div>
           </div>
         </section>
