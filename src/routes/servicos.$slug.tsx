@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, MessageCircle, Phone, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, Phone, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import work1 from "@/assets/work-1.jpg";
@@ -12,12 +12,6 @@ import work7 from "@/assets/work-7.jpg";
 
 const PHONE = "916 328 909";
 const PHONE_RAW = "+351916328909";
-const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
-
-const openExternal = (url: string) => (e: React.MouseEvent) => {
-  e.preventDefault();
-  window.open(url, "_blank", "noopener,noreferrer");
-};
 
 type ServiceContent = {
   title: string;
