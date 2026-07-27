@@ -1,5 +1,5 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, MessageCircle, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck } from "lucide-react";
+import { ArrowLeft, ArrowRight, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import heroImage from "@/assets/hero-technician.jpg";
@@ -11,13 +11,7 @@ const PHONE = "916 328 909";
 const PHONE_RAW = "+351916328909";
 const EMAIL = "geral@serralhariamarquesalves.pt";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
-const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(ADDRESS);
-
-const openExternal = (url: string) => (e: React.MouseEvent) => {
-  e.preventDefault();
-  window.open(url, "_blank", "noopener,noreferrer");
-};
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({
