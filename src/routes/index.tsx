@@ -532,7 +532,7 @@ function ContactForm() {
         </div>
       </div>
       <div>
-        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Email</label>
+        <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">O seu email</label>
         <input type="email" value={values.email} onChange={update("email")} className={fieldClass(errors.email)} />
         {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
       </div>
