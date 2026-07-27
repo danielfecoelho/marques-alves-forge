@@ -67,9 +67,7 @@ function PageHeader() {
           <Link to="/" hash="contacto" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contacto</Link>
         </nav>
         <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
-            <MessageCircle className="h-4 w-4" /> Pedir Orçamento
-          </a>
+          <Link to="/" hash="contacto">Pedir Orçamento</Link>
         </Button>
       </div>
     </header>
@@ -86,21 +84,6 @@ function PageFooter() {
         <p className="text-xs text-secondary-foreground/60">© {new Date().getFullYear()} Serralharia Marques Alves. Todos os direitos reservados.</p>
       </div>
     </footer>
-  );
-}
-
-function FloatingWhatsApp() {
-  return (
-    <a
-      href={WHATSAPP}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={openExternal(WHATSAPP)}
-      aria-label="Conversar no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-industrial)] transition-transform hover:scale-110"
-    >
-      <MessageCircle className="h-7 w-7" />
-    </a>
   );
 }
 
@@ -239,11 +222,6 @@ function SobrePage() {
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="btn-accent-sweep h-14 px-8 text-base">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
-                  <MessageCircle className="h-5 w-5" /> Falar no WhatsApp
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 px-8 text-base">
                 <Link to="/" hash="contacto">Enviar pedido <ArrowRight className="h-5 w-5" /></Link>
               </Button>
             </div>
@@ -251,7 +229,6 @@ function SobrePage() {
         </section>
       </main>
       <PageFooter />
-      <FloatingWhatsApp />
     </div>
   );
 }
