@@ -115,31 +115,19 @@ function SobrePage() {
             <img src={heroImage} alt="" className="h-full w-full object-cover object-center opacity-40" />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/60" />
           </div>
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+          <div className="mx-auto max-w-7xl px-6 py-24 text-center md:py-32">
             <Link to="/" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
               <ArrowLeft className="h-4 w-4" /> Voltar ao início
             </Link>
             <div className="mt-16">
               <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-white/80">A nossa história</span>
             </div>
-            <h1 className="mt-4 max-w-3xl font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mx-auto mt-4 max-w-3xl font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
               Serralharia <span className="relative inline-block text-white"><span className="relative z-10">Marques Alves</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85">
+            <p className="mx-auto mt-6 max-w-2xl text-lg text-secondary-foreground/85">
               Uma equipa sediada em Pedome, com mais de uma década a executar coberturas, estruturas metálicas, revestimentos de fachada e remoção certificada de amianto — para clientes residenciais, industriais e comerciais em todo o país.
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black hover:bg-white/90">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
-                  <MessageCircle className="h-5 w-5" /> Falar connosco
-                </a>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 border-secondary-foreground/30 bg-transparent px-8 text-base text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground">
-                <a href={`tel:${PHONE_RAW}`}>
-                  <Phone className="h-5 w-5" /> {PHONE}
-                </a>
-              </Button>
-            </div>
           </div>
         </section>
 
