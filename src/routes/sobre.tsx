@@ -119,7 +119,7 @@ function SobrePage() {
             <Link to="/" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
               <ArrowLeft className="h-4 w-4" /> Voltar ao início
             </Link>
-            <span className="mt-6 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-white/80">A nossa história</span>
+            <span className="mt-10 inline-block text-xs font-semibold uppercase tracking-[0.2em] text-white/80">A nossa história</span>
             <h1 className="mt-4 max-w-3xl font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
               Serralharia <span className="relative inline-block text-white"><span className="relative z-10">Marques Alves</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h1>
