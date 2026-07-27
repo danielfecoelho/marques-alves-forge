@@ -81,9 +81,7 @@ function Header() {
           <a href="#contacto" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">Contacto</a>
         </nav>
         <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
-          <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
-            <MessageCircle className="h-4 w-4" /> Pedir Orçamento
-          </a>
+          <a href="#contacto">Pedir Orçamento</a>
         </Button>
       </div>
     </header>
@@ -111,7 +109,7 @@ function Hero() {
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
-              <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
+              <a href="#contacto">
                 Pedir Orçamento Grátis <ArrowRight className="h-5 w-5" />
               </a>
             </Button>
@@ -191,7 +189,7 @@ function Gallery() {
             </p>
           </div>
           <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-background hover:text-foreground">
-            <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>Solicitar projeto semelhante</a>
+            <a href="#contacto">Solicitar projeto semelhante</a>
           </Button>
         </div>
         <GalleryAlbums />
@@ -428,11 +426,6 @@ function Contact() {
                   </div>
                 </div>
               </div>
-              <Button asChild size="lg" className="btn-accent-sweep mt-10 h-14 w-full bg-[#25D366] px-8 text-base text-white hover:bg-[#1faa54]">
-                <a href={WHATSAPP} target="_blank" rel="noopener noreferrer" onClick={openExternal(WHATSAPP)}>
-                  <MessageCircle className="h-5 w-5" /> Conversar no WhatsApp
-                </a>
-              </Button>
             </div>
             <ContactForm />
           </div>
@@ -500,7 +493,7 @@ function ContactForm() {
       setValues({ name: "", phone: "", email: "", workType: "Remoção de Amianto", message: "" });
     } catch {
       toast.error("Não foi possível enviar", {
-        description: "Tente novamente ou contacte-nos por WhatsApp.",
+        description: "Tente novamente ou contacte-nos por telefone.",
       });
     } finally {
       setSubmitting(false);
@@ -581,21 +574,6 @@ function _Footer() {
   );
 }
 
-function FloatingWhatsApp() {
-  return (
-    <a
-      href={WHATSAPP}
-      target="_blank"
-      rel="noopener noreferrer"
-      onClick={openExternal(WHATSAPP)}
-      aria-label="Conversar no WhatsApp"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[var(--shadow-industrial)] transition-transform hover:scale-110"
-    >
-      <MessageCircle className="h-7 w-7" />
-    </a>
-  );
-}
-
 function Index() {
   return (
     <div className="min-h-screen bg-background">
@@ -608,7 +586,6 @@ function Index() {
         <Contact />
       </main>
       <Footer />
-      <FloatingWhatsApp />
     </div>
   );
 }
