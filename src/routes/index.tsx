@@ -423,6 +423,7 @@ function Contact() {
                   <a href={`tel:${PHONE_RAW}`} className="inline-block rounded-md font-display text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-4xl">{PHONE}</a>
                   <a href={`tel:${PHONE_2_RAW}`} className="mt-1 inline-block rounded-md font-display text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-4xl">{PHONE_2}</a>
                 </div>
+                </div>
               </div>
               <div className="mt-8 space-y-5">
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
