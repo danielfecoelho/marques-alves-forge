@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Phone, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import work1 from "@/assets/work-1.jpg";
@@ -9,9 +9,6 @@ import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
 import work7 from "@/assets/work-7.jpg";
-
-const PHONE = "916 328 909";
-const PHONE_RAW = "+351916328909";
 
 type ServiceContent = {
   title: string;
