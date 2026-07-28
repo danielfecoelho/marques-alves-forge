@@ -2,7 +2,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { z } from "zod";
 import { toast } from "sonner";
-import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award, X, ChevronLeft, ChevronRight, Search } from "lucide-react";
+import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award, X, ChevronLeft, ChevronRight, Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
 import logo from "@/assets/logo-original.png";
@@ -70,9 +70,10 @@ const advantages = [
 ];
 
 function Header() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <a href="#top" aria-label="Serralharia Marques Alves — voltar ao início" className="flex items-center">
           <img src={logo} alt="Serralharia Marques Alves" className="h-10 w-auto rounded-sm md:h-12" />
         </a>
@@ -85,7 +86,27 @@ function Header() {
         <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
           <a href="#contacto">Pedir Orçamento</a>
         </Button>
+        <button
+          type="button"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:bg-muted md:hidden"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
+      {open && (
+        <div className="border-t border-border bg-background md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3">
+            <a href="#servicos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Serviços</a>
+            <a href="#trabalhos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Trabalhos</a>
+            <a href="#porque" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Sobre</a>
+            <a href="#contacto" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Contacto</a>
+            <a href="#contacto" onClick={() => setOpen(false)} className="btn-accent-sweep mt-2 inline-flex h-12 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground">Pedir Orçamento</a>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
@@ -98,38 +119,38 @@ function Hero() {
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="absolute inset-0 bg-secondary/7" />
       </div>
-      <div className="mx-auto max-w-7xl px-6 py-28 md:py-40">
+      <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 md:py-40">
         <div className="max-w-3xl">
-          <p className="text-lg text-secondary-foreground/85 md:text-xl">
+          <p className="text-base text-secondary-foreground/85 sm:text-lg md:text-xl">
             Serralharia em Pedome · ao serviço de todo o país
           </p>
-          <h1 className="mt-5 font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground md:text-7xl">
+          <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground sm:text-5xl md:text-7xl">
             Soluções metálicas <span className="relative inline-block text-white"><span className="relative z-10">feitas para durar</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
           </h1>
-          <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85 md:text-xl">
+          <p className="mt-6 max-w-2xl text-base text-secondary-foreground/85 sm:text-lg md:text-xl">
             Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em todo o país.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90">
+          <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
+            <Button asChild size="lg" className="btn-accent-sweep h-14 w-full bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90 sm:w-auto">
               <a href="#contacto">
                 Pedir Orçamento Grátis <ArrowRight className="h-5 w-5" />
               </a>
             </Button>
-            <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 border-secondary-foreground/30 bg-transparent px-8 text-base text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground">
+            <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 w-full border-secondary-foreground/30 bg-transparent px-8 text-base text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground sm:w-auto">
               <a href="#trabalhos">Ver Trabalhos</a>
             </Button>
           </div>
-          <div className="mt-12 grid max-w-xl grid-cols-3 gap-6 border-t border-secondary-foreground/15 pt-6">
+          <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-secondary-foreground/15 pt-6 sm:mt-12 sm:gap-6">
             <div>
-              <div className="font-display text-3xl font-bold text-white">15+</div>
+              <div className="font-display text-2xl font-bold text-white sm:text-3xl">15+</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Anos de experiência</div>
             </div>
             <div>
-              <div className="font-display text-3xl font-bold text-white">500+</div>
+              <div className="font-display text-2xl font-bold text-white sm:text-3xl">500+</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Projetos concluídos</div>
             </div>
             <div>
-              <div className="font-display text-3xl font-bold text-white">100%</div>
+              <div className="font-display text-2xl font-bold text-white sm:text-3xl">100%</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Satisfação garantida</div>
             </div>
           </div>
@@ -141,18 +162,18 @@ function Hero() {
 
 function Services() {
   return (
-    <section id="servicos" className="bg-background py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="servicos" className="bg-background py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="max-w-2xl">
           <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Os Nossos Serviços</span>
-          <h2 className="mt-3 font-display text-4xl font-bold uppercase text-foreground md:text-5xl">
+          <h2 className="mt-3 font-display text-3xl font-bold uppercase text-foreground sm:text-4xl md:text-5xl">
             Tudo o que o seu projeto precisa
           </h2>
           <p className="mt-4 text-muted-foreground">
             Da conceção à instalação, executamos cada trabalho com o máximo cuidado técnico e atenção ao detalhe.
           </p>
         </div>
-        <div className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-14 sm:grid-cols-2 lg:grid-cols-4">
           {services.map((s) => (
             <Link
               key={s.slug}
@@ -178,19 +199,19 @@ function Services() {
 
 function Gallery() {
   return (
-    <section id="trabalhos" className="bg-muted py-24">
-      <div className="mx-auto max-w-7xl px-6">
-        <div className="flex flex-wrap items-end justify-between gap-6">
+    <section id="trabalhos" className="bg-muted py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="flex flex-col items-start justify-between gap-6 sm:flex-row sm:flex-wrap sm:items-end">
           <div className="max-w-2xl">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Portfólio</span>
-            <h2 className="mt-3 font-display text-4xl font-bold uppercase text-foreground md:text-5xl">
+            <h2 className="mt-3 font-display text-3xl font-bold uppercase text-foreground sm:text-4xl md:text-5xl">
               Trabalhos recentes
             </h2>
             <p className="mt-4 text-muted-foreground">
               Uma seleção de projetos executados para clientes residenciais, industriais e comerciais.
             </p>
           </div>
-          <Button asChild variant="outline" className="btn-accent-sweep border-foreground bg-background text-foreground hover:bg-background hover:text-foreground">
+          <Button asChild variant="outline" className="btn-accent-sweep w-full border-foreground bg-background text-foreground hover:bg-background hover:text-foreground sm:w-auto">
             <a href="#contacto">Solicitar projeto semelhante</a>
           </Button>
         </div>
@@ -244,16 +265,16 @@ function GalleryAlbums() {
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 transition-opacity duration-300 group-hover:from-black/90" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
-              <div>
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4 sm:gap-4 sm:p-6">
+              <div className="min-w-0">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
                   {cat.images.length} fotos
                 </span>
-                <h3 className="mt-2 font-display text-2xl font-bold uppercase text-white md:text-3xl">
+                <h3 className="mt-2 font-display text-lg font-bold uppercase text-white sm:text-2xl md:text-3xl">
                   {cat.label}
                 </h3>
               </div>
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/95 text-black shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/95 text-black shadow-lg transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12">
                 <Search className="h-5 w-5" />
               </span>
             </div>
@@ -336,16 +357,16 @@ function GalleryAlbums() {
 
 function WhyUs() {
   return (
-    <section id="porque" className="relative overflow-hidden bg-secondary py-24 text-secondary-foreground">
+    <section id="porque" className="relative overflow-hidden bg-secondary py-16 text-secondary-foreground sm:py-24">
       <div className="absolute inset-0 opacity-[0.04]" style={{
         backgroundImage: "linear-gradient(var(--primary) 1px, transparent 1px), linear-gradient(90deg, var(--primary) 1px, transparent 1px)",
         backgroundSize: "48px 48px",
       }} />
-      <div className="relative mx-auto max-w-7xl px-6">
-        <div className="grid gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-center">
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="grid gap-10 sm:gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-center">
           <div className="flex flex-col justify-center text-center lg:text-left">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Porquê escolher-nos</span>
-            <h2 className="mt-3 font-display text-4xl font-bold uppercase md:text-5xl">
+            <h2 className="mt-3 font-display text-3xl font-bold uppercase sm:text-4xl md:text-5xl">
               Construímos <span className="relative inline-block text-white"><span className="relative z-10">solidez e segurança</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75 text-justify">
@@ -378,13 +399,13 @@ function WhyUs() {
 
 function Contact() {
   return (
-    <section id="contacto" className="bg-background py-24">
-      <div className="mx-auto max-w-7xl px-6">
+    <section id="contacto" className="bg-background py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
         <div className="overflow-hidden rounded-lg border border-border bg-card shadow-[var(--shadow-industrial)]">
           <div className="grid lg:grid-cols-2">
-            <div className="bg-secondary p-10 text-secondary-foreground md:p-14">
+            <div className="bg-secondary p-6 text-secondary-foreground sm:p-10 md:p-14">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Fale connosco</span>
-              <h2 className="mt-3 font-display text-4xl font-bold uppercase leading-tight md:text-5xl">
+              <h2 className="mt-3 font-display text-3xl font-bold uppercase leading-tight sm:text-4xl md:text-5xl">
                 Tem um projeto em mente?
               </h2>
               <p className="mt-4 text-secondary-foreground/75">
@@ -395,32 +416,32 @@ function Contact() {
                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Phone className="h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
-                    <a href={`tel:${PHONE_RAW}`} className="block font-display text-2xl font-semibold">{PHONE}</a>
-                    <a href={`tel:${PHONE_2_RAW}`} className="block font-display text-2xl font-semibold">{PHONE_2}</a>
+                    <a href={`tel:${PHONE_RAW}`} className="block font-display text-xl font-semibold sm:text-2xl">{PHONE}</a>
+                    <a href={`tel:${PHONE_2_RAW}`} className="block font-display text-xl font-semibold sm:text-2xl">{PHONE_2}</a>
                   </div>
                 </div>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
+                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Email</div>
-                    <div className="text-base font-medium">{EMAIL}</div>
+                    <div className="break-all text-sm font-medium sm:text-base">{EMAIL}</div>
                   </div>
                 </a>
                 <a href={MAPS_URL} target="_blank" rel="noopener noreferrer" onClick={openExternal(MAPS_URL)} className="group flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
+                   <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <MapPin className="h-5 w-5" />
                   </div>
-                  <div>
+                  <div className="min-w-0">
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Morada</div>
                     <div className="text-base font-medium">{ADDRESS}</div>
                   </div>
                 </a>
                 <div className="flex items-center gap-4">
-                  <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white">
                     <Clock className="h-5 w-5" />
                   </div>
                   <div>
@@ -510,7 +531,7 @@ function ContactForm() {
 
   return (
     <form
-      className="space-y-5 p-10 md:p-14 animate-fade-in"
+      className="space-y-5 p-6 sm:p-10 md:p-14 animate-fade-in"
       onSubmit={onSubmit}
       noValidate
     >
