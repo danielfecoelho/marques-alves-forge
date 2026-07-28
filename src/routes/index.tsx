@@ -265,16 +265,16 @@ function GalleryAlbums() {
               className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/40 to-black/20 transition-opacity duration-300 group-hover:from-black/90" />
-            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6">
-              <div>
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-3 p-4 sm:gap-4 sm:p-6">
+              <div className="min-w-0">
                 <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
                   {cat.images.length} fotos
                 </span>
-                <h3 className="mt-2 font-display text-2xl font-bold uppercase text-white md:text-3xl">
+                <h3 className="mt-2 font-display text-lg font-bold uppercase text-white sm:text-2xl md:text-3xl">
                   {cat.label}
                 </h3>
               </div>
-              <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-white/95 text-black shadow-lg transition-transform duration-300 group-hover:scale-110">
+              <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/95 text-black shadow-lg transition-transform duration-300 group-hover:scale-110 sm:h-12 sm:w-12">
                 <Search className="h-5 w-5" />
               </span>
             </div>
