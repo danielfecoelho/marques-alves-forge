@@ -1,5 +1,6 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import work1 from "@/assets/work-1.jpg";
@@ -143,9 +144,10 @@ function ServiceNotFound() {
 }
 
 function PageHeader() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" aria-label="Serralharia Marques Alves — voltar ao início" className="flex items-center">
           <img src={logo} alt="Serralharia Marques Alves" className="h-10 w-auto rounded-sm md:h-12" />
         </Link>
@@ -158,7 +160,27 @@ function PageHeader() {
         <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
           <Link to="/" hash="contacto">Pedir Orçamento</Link>
         </Button>
+        <button
+          type="button"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:bg-muted md:hidden"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
+      {open && (
+        <div className="border-t border-border bg-background md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3">
+            <Link to="/" hash="servicos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Serviços</Link>
+            <Link to="/" hash="trabalhos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Trabalhos</Link>
+            <Link to="/" hash="porque" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Sobre</Link>
+            <Link to="/" hash="contacto" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Contacto</Link>
+            <Link to="/" hash="contacto" onClick={() => setOpen(false)} className="btn-accent-sweep mt-2 inline-flex h-12 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground">Pedir Orçamento</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
@@ -190,24 +212,24 @@ function ServicePage() {
             <img src={data.hero} alt="" className="h-full w-full object-cover object-center opacity-40" />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/60" />
           </div>
-          <div className="mx-auto max-w-7xl px-6 py-24 md:py-32">
+          <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-32">
             <Link to="/" hash="servicos" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
               <ArrowLeft className="h-4 w-4" /> Todos os serviços
             </Link>
             <div className="mt-6 flex items-center gap-4">
-              <div className="flex h-14 w-14 items-center justify-center rounded-md bg-white text-black">
+              <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-md bg-white text-black">
                 <Icon className="h-7 w-7" />
               </div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">{data.tagline}</span>
             </div>
-            <h1 className="mt-6 max-w-3xl font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mt-6 max-w-3xl font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
               {data.title}
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85">
+            <p className="mt-6 max-w-2xl text-base text-secondary-foreground/85 sm:text-lg">
               {data.intro}
             </p>
-            <div className="mt-10 flex flex-wrap gap-4">
-              <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black hover:bg-white/90">
+            <div className="mt-8 flex flex-wrap gap-4 sm:mt-10">
+              <Button asChild size="lg" className="btn-accent-sweep h-14 w-full bg-white px-8 text-base text-black hover:bg-white/90 sm:w-auto">
                 <Link to="/" hash="contacto">
                   Pedir Orçamento
                 </Link>
@@ -217,11 +239,11 @@ function ServicePage() {
         </section>
 
         {/* Highlights */}
-        <section className="bg-background py-20">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="bg-background py-14 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Porquê connosco</span>
-            <h2 className="mt-3 font-display text-3xl font-bold uppercase text-foreground md:text-4xl">Um serviço completo</h2>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Um serviço completo</h2>
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-3">
               {data.highlights.map((h) => (
                 <div key={h.title} className="rounded-md border border-border bg-card p-7">
                   <CheckCircle2 className="h-6 w-6 text-accent" />
@@ -234,11 +256,11 @@ function ServicePage() {
         </section>
 
         {/* Process */}
-        <section className="bg-secondary py-20 text-secondary-foreground">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="bg-secondary py-14 text-secondary-foreground sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Como trabalhamos</span>
-            <h2 className="mt-3 font-display text-3xl font-bold uppercase md:text-4xl">Processo em 4 etapas</h2>
-            <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <h2 className="mt-3 font-display text-2xl font-bold uppercase sm:text-3xl md:text-4xl">Processo em 4 etapas</h2>
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
               {data.process.map((p) => (
                 <div key={p.step} className="rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.03] p-7">
                   <div className="font-display text-3xl font-bold text-accent">{p.step}</div>
@@ -251,11 +273,11 @@ function ServicePage() {
         </section>
 
         {/* Gallery */}
-        <section className="bg-muted py-20">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="bg-muted py-14 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Trabalhos</span>
-            <h2 className="mt-3 font-display text-3xl font-bold uppercase text-foreground md:text-4xl">Exemplos recentes</h2>
-            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+            <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Exemplos recentes</h2>
+            <div className="mt-8 grid grid-cols-2 gap-4 sm:mt-10 md:grid-cols-4">
               {data.gallery.map((src, i) => (
                 <div key={i} className="aspect-[4/3] overflow-hidden rounded-md bg-secondary">
                   <img src={src} alt={`${data.title} — foto ${i + 1}`} className="h-full w-full object-cover transition-transform duration-500 hover:scale-105" />
@@ -271,9 +293,9 @@ function ServicePage() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-background py-20">
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <h2 className="font-display text-3xl font-bold uppercase text-foreground md:text-4xl">
+        <section className="bg-background py-14 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+            <h2 className="font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">
               Pronto para avançar com o seu projeto?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
