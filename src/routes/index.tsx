@@ -427,7 +427,6 @@ function Contact() {
               </div>
               <div className="mt-8 space-y-5">
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
-                <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
                   </div>
