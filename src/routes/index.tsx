@@ -20,6 +20,8 @@ export const Route = createFileRoute("/")({
 
 const PHONE = "916 328 909";
 const PHONE_RAW = "+351916328909";
+const PHONE_2 = "914 468 612";
+const PHONE_2_RAW = "+351914468612";
 const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const EMAIL = "geral@serralhariamarquesalves.pt";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
@@ -396,6 +398,15 @@ function Contact() {
                   <div>
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
                     <div className="font-display text-2xl font-semibold">{PHONE}</div>
+                  </div>
+                </a>
+                <a href={`tel:${PHONE_2_RAW}`} className="group flex items-center gap-4">
+                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
+                    <div className="font-display text-2xl font-semibold">{PHONE_2}</div>
                   </div>
                 </a>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">

@@ -1,5 +1,5 @@
 import { createFileRoute, Link, notFound } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, Phone, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen } from "lucide-react";
+import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import work1 from "@/assets/work-1.jpg";
@@ -9,9 +9,6 @@ import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
 import work7 from "@/assets/work-7.jpg";
-
-const PHONE = "916 328 909";
-const PHONE_RAW = "+351916328909";
 
 type ServiceContent = {
   title: string;
@@ -54,7 +51,7 @@ const CONTENT: Record<string, ServiceContent> = {
     hero: work4,
     highlights: [
       { title: "Painéis novos e usados", desc: "Stock permanente no armazém para respostas rápidas." },
-      { title: "Isolamento eficiente", desc: "Núcleo em poliuretano ou lã de rocha, adequado a cada aplicação." },
+      { title: "Isolamento eficiente", desc: "Material isolante de acordo com as especificações técnicas do projeto." },
       { title: "Instalação rápida", desc: "Equipas experientes que minimizam a paragem da atividade." },
     ],
     process: [
@@ -212,13 +209,8 @@ function ServicePage() {
             <div className="mt-10 flex flex-wrap gap-4">
               <Button asChild size="lg" className="btn-accent-sweep h-14 bg-white px-8 text-base text-black hover:bg-white/90">
                 <Link to="/" hash="contacto">
-                  Pedir Orçamento <ArrowRight className="h-5 w-5" />
+                  Pedir Orçamento
                 </Link>
-              </Button>
-              <Button asChild size="lg" variant="outline" className="btn-accent-sweep h-14 border-secondary-foreground/30 bg-transparent px-8 text-base text-secondary-foreground hover:bg-secondary-foreground/10 hover:text-secondary-foreground">
-                <a href={`tel:${PHONE_RAW}`}>
-                  <Phone className="h-5 w-5" /> {PHONE}
-                </a>
               </Button>
             </div>
           </div>
