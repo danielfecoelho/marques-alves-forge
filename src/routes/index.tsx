@@ -391,24 +391,16 @@ function Contact() {
                 Resposta rápida em menos de 24 horas. Ligue, envie mensagem ou visite-nos.
               </p>
               <div className="mt-8 space-y-5">
-                <a href={`tel:${PHONE_RAW}`} className="group flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
+                <div className="group flex items-center gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Phone className="h-5 w-5" />
                   </div>
                   <div>
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
-                    <div className="font-display text-2xl font-semibold">{PHONE}</div>
+                    <a href={`tel:${PHONE_RAW}`} className="block font-display text-2xl font-semibold">{PHONE}</a>
+                    <a href={`tel:${PHONE_2_RAW}`} className="block font-display text-2xl font-semibold">{PHONE_2}</a>
                   </div>
-                </a>
-                <a href={`tel:${PHONE_2_RAW}`} className="group flex items-center gap-4">
-                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
-                    <Phone className="h-5 w-5" />
-                  </div>
-                  <div>
-                    <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
-                    <div className="font-display text-2xl font-semibold">{PHONE_2}</div>
-                  </div>
-                </a>
+                </div>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
