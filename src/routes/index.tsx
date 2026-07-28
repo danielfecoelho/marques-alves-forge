@@ -539,7 +539,7 @@ function ContactForm() {
       onSubmit={onSubmit}
       noValidate
     >
-      <h3 className="font-display text-2xl font-bold uppercase text-foreground">Pedido de orçamento</h3>
+      <h3 className="font-display text-xl font-medium text-muted-foreground sm:text-2xl">Ou, se preferir, deixe-nos os detalhes</h3>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nome *</label>
