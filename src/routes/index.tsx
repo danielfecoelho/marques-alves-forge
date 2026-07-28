@@ -400,6 +400,15 @@ function Contact() {
                     <div className="font-display text-2xl font-semibold">{PHONE}</div>
                   </div>
                 </a>
+                <a href={`tel:${PHONE_2_RAW}`} className="group flex items-center gap-4">
+                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
+                    <Phone className="h-5 w-5" />
+                  </div>
+                  <div>
+                    <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
+                    <div className="font-display text-2xl font-semibold">{PHONE_2}</div>
+                  </div>
+                </a>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
                    <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
