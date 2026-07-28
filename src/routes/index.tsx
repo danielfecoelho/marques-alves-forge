@@ -411,17 +411,22 @@ function Contact() {
               <p className="mt-4 text-secondary-foreground/75">
                 Resposta rápida em menos de 24 horas. Ligue, envie mensagem ou visite-nos.
               </p>
-              <div className="mt-8 space-y-5">
-                <div className="group flex items-center gap-4">
-                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
-                    <Phone className="h-5 w-5" />
+              <div className="mt-8 rounded-md border border-white/15 bg-white/5 p-5 sm:p-6">
+                <p className="font-display text-sm font-medium uppercase tracking-wider text-primary sm:text-base">
+                  Prefere falar connosco de imediato? Ligue já:
+                </p>
+                <div className="mt-4 flex items-start gap-4">
+                  <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-primary text-white">
+                    <Phone className="h-6 w-6" />
                   </div>
                   <div className="min-w-0">
-                    <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
-                    <a href={`tel:${PHONE_RAW}`} className="block font-display text-xl font-semibold sm:text-2xl">{PHONE}</a>
-                    <a href={`tel:${PHONE_2_RAW}`} className="block font-display text-xl font-semibold sm:text-2xl">{PHONE_2}</a>
+                    <a href={`tel:${PHONE_RAW}`} className="btn-accent-sweep inline-block rounded-md font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl">{PHONE}</a>
+                    <a href={`tel:${PHONE_2_RAW}`} className="btn-accent-sweep mt-1 inline-block rounded-md font-display text-3xl font-extrabold leading-tight tracking-tight sm:text-4xl md:text-5xl">{PHONE_2}</a>
                   </div>
                 </div>
+              </div>
+              <div className="mt-8 space-y-5">
+                <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-md bg-white/10 text-white transition-colors group-hover:bg-white group-hover:text-black">
                     <Mail className="h-5 w-5" />
