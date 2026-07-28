@@ -414,7 +414,8 @@ function Contact() {
               <p className="mt-8 text-center font-display text-sm font-medium uppercase tracking-wider text-primary sm:text-base">
                 Prefere falar connosco de imediato? Ligue já:
               </p>
-              <div className="mt-4 inline-flex items-center justify-center gap-4 rounded-md border border-white/15 bg-white/5 px-4 py-3">
+              <div className="mt-4 text-center">
+                <div className="inline-flex items-center gap-4 rounded-md border border-white/15 bg-white/5 px-4 py-3">
                 <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-md bg-primary text-white">
                   <Phone className="h-5 w-5" />
                 </div>
