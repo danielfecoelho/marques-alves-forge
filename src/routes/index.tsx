@@ -20,6 +20,8 @@ export const Route = createFileRoute("/")({
 
 const PHONE = "916 328 909";
 const PHONE_RAW = "+351916328909";
+const PHONE_2 = "914 468 612";
+const PHONE_2_RAW = "+351914468612";
 const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const EMAIL = "geral@serralhariamarquesalves.pt";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
