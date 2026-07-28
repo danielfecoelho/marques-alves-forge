@@ -122,7 +122,7 @@ function Hero() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 md:py-40">
         <div className="max-w-3xl">
           <p className="text-base text-secondary-foreground/85 sm:text-lg md:text-xl">
-            Serralharia em Pedome <span className="inline sm:hidden">{"\n"}<br /></span>· ao serviço de todo o país
+            Serralharia em Pedome <span className="hidden sm:inline">· </span><br className="sm:hidden" />ao serviço de todo o país
           </p>
           <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground sm:text-5xl md:text-7xl">
             Soluções metálicas <span className="relative inline-block text-white"><span className="relative z-10">feitas para durar</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
