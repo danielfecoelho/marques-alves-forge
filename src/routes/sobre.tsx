@@ -1,5 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { ArrowLeft, ArrowRight, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck } from "lucide-react";
+import { useState } from "react";
+import { ArrowLeft, ArrowRight, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import heroImage from "@/assets/hero-technician.jpg";
@@ -48,9 +49,10 @@ const capabilities = [
 ];
 
 function PageHeader() {
+  const [open, setOpen] = useState(false);
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-border bg-background/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6">
+      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6">
         <Link to="/" aria-label="Serralharia Marques Alves — voltar ao início" className="flex items-center">
           <img src={logo} alt="Serralharia Marques Alves" className="h-10 w-auto rounded-sm md:h-12" />
         </Link>
@@ -63,7 +65,27 @@ function PageHeader() {
         <Button asChild size="sm" className="btn-accent-sweep hidden md:inline-flex">
           <Link to="/" hash="contacto">Pedir Orçamento</Link>
         </Button>
+        <button
+          type="button"
+          aria-label={open ? "Fechar menu" : "Abrir menu"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+          className="inline-flex h-11 w-11 items-center justify-center rounded-md text-foreground hover:bg-muted md:hidden"
+        >
+          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+        </button>
       </div>
+      {open && (
+        <div className="border-t border-border bg-background md:hidden">
+          <nav className="mx-auto flex max-w-7xl flex-col px-4 py-3">
+            <Link to="/" hash="servicos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Serviços</Link>
+            <Link to="/" hash="trabalhos" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Trabalhos</Link>
+            <Link to="/sobre" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Sobre</Link>
+            <Link to="/" hash="contacto" onClick={() => setOpen(false)} className="rounded-md px-3 py-3 text-base font-medium text-foreground hover:bg-muted">Contacto</Link>
+            <Link to="/" hash="contacto" onClick={() => setOpen(false)} className="btn-accent-sweep mt-2 inline-flex h-12 items-center justify-center rounded-md bg-primary px-4 text-sm font-semibold text-primary-foreground">Pedir Orçamento</Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
@@ -92,28 +114,28 @@ function SobrePage() {
             <img src={heroImage} alt="" className="h-full w-full object-cover object-center opacity-40" />
             <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/60" />
           </div>
-          <div className="mx-auto max-w-7xl px-6 py-24 text-left md:py-32">
+          <div className="mx-auto max-w-7xl px-4 py-20 text-left sm:px-6 sm:py-24 md:py-32">
             <Link to="/" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
               <ArrowLeft className="h-4 w-4" /> Voltar ao início
             </Link>
-            <div className="mt-16">
+            <div className="mt-12 sm:mt-16">
               <span className="inline-block text-xs font-semibold uppercase tracking-[0.2em] text-white/80">A nossa história</span>
             </div>
-            <h1 className="mt-4 max-w-3xl font-display text-5xl font-bold uppercase leading-[1.05] tracking-tight md:text-6xl">
+            <h1 className="mt-4 max-w-3xl font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight sm:text-5xl md:text-6xl">
               Serralharia <span className="relative inline-block text-white"><span className="relative z-10">Marques Alves</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h1>
-            <p className="mt-6 max-w-2xl text-lg text-secondary-foreground/85">
+            <p className="mt-6 max-w-2xl text-base text-secondary-foreground/85 sm:text-lg">
               Uma equipa sediada em Pedome, com mais de uma década a executar coberturas, estruturas metálicas, revestimentos de fachada e remoção certificada de amianto — para clientes residenciais, industriais e comerciais em todo o país.
             </p>
           </div>
         </section>
 
         {/* Story */}
-        <section className="bg-background py-20">
-          <div className="mx-auto grid max-w-7xl gap-14 px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center">
+        <section className="bg-background py-14 sm:py-20">
+          <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:gap-14 sm:px-6 lg:grid-cols-[1.1fr_1fr] lg:items-center">
             <div>
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Quem somos</span>
-              <h2 className="mt-3 font-display text-3xl font-bold uppercase text-foreground md:text-4xl">
+              <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">
                 Um ofício levado a sério
               </h2>
               <p className="mt-5 text-muted-foreground text-justify">
@@ -124,15 +146,15 @@ function SobrePage() {
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-6">
                 <div>
-                  <div className="font-display text-3xl font-bold text-foreground">15+</div>
+                  <div className="font-display text-2xl font-bold text-foreground sm:text-3xl">15+</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">Anos de experiência</div>
                 </div>
                 <div>
-                  <div className="font-display text-3xl font-bold text-foreground">500+</div>
+                  <div className="font-display text-2xl font-bold text-foreground sm:text-3xl">500+</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">Projetos concluídos</div>
                 </div>
                 <div>
-                  <div className="font-display text-3xl font-bold text-foreground">100%</div>
+                  <div className="font-display text-2xl font-bold text-foreground sm:text-3xl">100%</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">Satisfação garantida</div>
                 </div>
               </div>
@@ -148,11 +170,11 @@ function SobrePage() {
         </section>
 
         {/* Values */}
-        <section className="bg-secondary py-20 text-secondary-foreground">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="bg-secondary py-14 text-secondary-foreground sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Os nossos valores</span>
-            <h2 className="mt-3 font-display text-3xl font-bold uppercase md:text-4xl">O que nos guia</h2>
-            <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            <h2 className="mt-3 font-display text-2xl font-bold uppercase sm:text-3xl md:text-4xl">O que nos guia</h2>
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 sm:grid-cols-2 lg:grid-cols-4">
               {values.map((v) => (
                 <div key={v.title} className="rounded-md border border-secondary-foreground/10 bg-secondary-foreground/[0.03] p-7">
                   <div className="flex h-12 w-12 items-center justify-center rounded-md bg-white text-black">
@@ -167,11 +189,11 @@ function SobrePage() {
         </section>
 
         {/* Timeline */}
-        <section className="bg-background py-20">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="bg-background py-14 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Percurso</span>
-            <h2 className="mt-3 font-display text-3xl font-bold uppercase text-foreground md:text-4xl">Uma trajetória construída passo a passo</h2>
-            <div className="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Uma trajetória construída passo a passo</h2>
+            <div className="mt-10 grid grid-cols-1 gap-6 sm:mt-12 sm:grid-cols-2 lg:grid-cols-4">
               {timeline.map((t) => (
                 <div key={t.year} className="relative rounded-md border border-border bg-card p-7">
                   <div className="font-display text-4xl font-bold text-accent">{t.year}</div>
@@ -184,16 +206,16 @@ function SobrePage() {
         </section>
 
         {/* Capabilities */}
-        <section className="bg-muted py-20">
-          <div className="mx-auto max-w-7xl px-6">
+        <section className="bg-muted py-14 sm:py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="max-w-2xl">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Capacidade instalada</span>
-              <h2 className="mt-3 font-display text-3xl font-bold uppercase text-foreground md:text-4xl">Pronta resposta, do projeto à obra</h2>
+              <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Pronta resposta, do projeto à obra</h2>
               <p className="mt-4 text-muted-foreground">
                 Contamos com meios próprios que nos permitem controlar prazos e qualidade em cada etapa.
               </p>
             </div>
-            <div className="mt-10 grid gap-6 md:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-3">
               {capabilities.map((c) => (
                 <div key={c.title} className="rounded-md border border-border bg-background p-7">
                   <c.icon className="h-7 w-7 text-accent" />
@@ -206,9 +228,9 @@ function SobrePage() {
         </section>
 
         {/* Final CTA */}
-        <section className="bg-background py-20">
-          <div className="mx-auto max-w-4xl px-6 text-center">
-            <h2 className="font-display text-3xl font-bold uppercase text-foreground md:text-4xl">
+        <section className="bg-background py-14 sm:py-20">
+          <div className="mx-auto max-w-4xl px-4 text-center sm:px-6">
+            <h2 className="font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">
               Pronto para avançar com o seu projeto?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
