@@ -159,7 +159,7 @@ function SobrePage() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            <div className="grid grid-cols-2 gap-4">
               <img src={oficio1.url} alt="Equipa da Serralharia Marques Alves em obra" className="aspect-[4/5] w-full rounded-md object-cover" />
               <img src={oficio2.url} alt="Técnico em estrutura metálica" className="aspect-[4/5] w-full rounded-md object-cover" />
             </div>
