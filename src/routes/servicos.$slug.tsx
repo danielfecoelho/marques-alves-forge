@@ -210,8 +210,18 @@ function ServicePage() {
         {/* Hero */}
         <section className="relative isolate overflow-hidden bg-secondary text-secondary-foreground">
           <div className="absolute inset-0 -z-10">
-            <img src={data.hero} alt="" className="h-full w-full object-cover object-center opacity-60" />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/40" />
+            <img
+              src={data.hero}
+              alt=""
+              className={`h-full w-full object-cover object-center ${data.hero === amiantoHero.url ? "opacity-70" : "opacity-40"}`}
+            />
+            <div
+              className={
+                data.hero === amiantoHero.url
+                  ? "absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/40"
+                  : "absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/60"
+              }
+            />
           </div>
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-32">
             <Link to="/" hash="servicos" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
