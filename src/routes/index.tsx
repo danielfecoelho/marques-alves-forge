@@ -5,6 +5,10 @@ import { toast } from "sonner";
 import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, DoorOpen, ShieldCheck, CheckCircle2, Hammer, Clock, Award, X, ChevronLeft, ChevronRight, Search, Menu } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
+import heroSlide2 from "@/assets/hero-slide-2.jpeg.asset.json";
+import heroSlide3 from "@/assets/hero-slide-3.jpeg.asset.json";
+import heroSlide4 from "@/assets/hero-slide-4.jpeg.asset.json";
+import heroSlide5 from "@/assets/hero-slide-5.jpeg.asset.json";
 import logo from "@/assets/logo-original.png";
 import sobreBg from "@/assets/sobre-bg.jpeg.asset.json";
 import work1 from "@/assets/work-1.jpg";
@@ -113,10 +117,26 @@ function Header() {
 }
 
 function Hero() {
+  const slides = [heroImage, heroSlide2.url, heroSlide3.url, heroSlide4.url, heroSlide5.url];
+  const [current, setCurrent] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 3000);
+    return () => clearInterval(id);
+  }, [slides.length]);
   return (
     <section id="top" className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <img src={heroImage} alt="Técnico da Serralharia Marques Alves em obra" width={1920} height={1280} className="h-full w-full object-cover object-right sm:object-center" />
+        {slides.map((src, i) => (
+          <img
+            key={src}
+            src={src}
+            alt=""
+            width={1920}
+            height={1280}
+            aria-hidden={i !== current}
+            className={`absolute inset-0 h-full w-full object-cover object-right transition-opacity duration-1000 ease-in-out sm:object-center ${i === current ? "opacity-100" : "opacity-0"}`}
+          />
+        ))}
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="absolute inset-0 bg-secondary/7" />
       </div>
