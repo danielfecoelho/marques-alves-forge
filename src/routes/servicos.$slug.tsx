@@ -10,6 +10,7 @@ import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
 import work7 from "@/assets/work-7.jpg";
+import amiantoHero from "@/assets/amianto-hero.png.asset.json";
 
 type ServiceContent = {
   title: string;
@@ -29,7 +30,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Executamos a remoção de coberturas em fibrocimento com equipas certificadas, transporte licenciado e destino final autorizado. Substituímos por soluções modernas em painel sandwich, prontas para décadas de uso.",
     icon: ShieldCheck,
-    hero: work1,
+    hero: amiantoHero.url,
     highlights: [
       { title: "Equipa certificada", desc: "Técnicos com formação específica em remoção de materiais com amianto." },
       { title: "Transporte licenciado", desc: "Recolha, transporte e encaminhamento para operador autorizado." },
@@ -209,8 +210,8 @@ function ServicePage() {
         {/* Hero */}
         <section className="relative isolate overflow-hidden bg-secondary text-secondary-foreground">
           <div className="absolute inset-0 -z-10">
-            <img src={data.hero} alt="" className="h-full w-full object-cover object-center opacity-40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/60" />
+            <img src={data.hero} alt="" className="h-full w-full object-cover object-center opacity-60" />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/40" />
           </div>
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-32">
             <Link to="/" hash="servicos" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
