@@ -3,7 +3,7 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
-import heroImage from "@/assets/hero-technician.jpg";
+import sobreBg from "@/assets/sobre-bg.jpeg.asset.json";
 import work2 from "@/assets/work-2.jpg";
 import work4 from "@/assets/work-4.jpg";
 import work6 from "@/assets/work-6.jpg";
@@ -111,8 +111,9 @@ function SobrePage() {
         {/* Hero */}
         <section className="relative isolate overflow-hidden bg-secondary text-secondary-foreground">
           <div className="absolute inset-0 -z-10">
-            <img src={heroImage} alt="" className="h-full w-full object-cover object-center opacity-40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/60" />
+            <img src={sobreBg.url} alt="" className="h-[118%] w-full object-cover object-top" />
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-secondary/40" />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/50 to-secondary/70" />
           </div>
           <div className="mx-auto max-w-7xl px-4 py-20 text-left sm:px-6 sm:py-24 md:py-32">
             <Link to="/" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
