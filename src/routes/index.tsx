@@ -358,13 +358,13 @@ function GalleryAlbums() {
 
 function WhyUs() {
   return (
-    <section id="porque" className="relative overflow-hidden bg-secondary py-16 text-secondary-foreground sm:py-24">
-      <div className="absolute inset-0 -z-10">
+    <section id="porque" className="relative isolate overflow-hidden bg-secondary py-16 text-secondary-foreground sm:py-24">
+      <div className="absolute inset-0 z-0">
         <img src={sobreBg.url} alt="" className="h-full w-full object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/85 to-secondary/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/40 to-secondary/70" />
       </div>
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 sm:gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-center">
           <div className="flex flex-col justify-center text-center lg:text-left">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-white">Porquê escolher-nos</span>
