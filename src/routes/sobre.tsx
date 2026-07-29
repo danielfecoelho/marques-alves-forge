@@ -4,9 +4,8 @@ import { ArrowLeft, ArrowRight, ShieldCheck, Award, Hammer, Users, Wrench, Packa
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import sobreBg from "@/assets/sobre-bg.jpeg.asset.json";
-import work2 from "@/assets/work-2.jpg";
-import work4 from "@/assets/work-4.jpg";
-import work6 from "@/assets/work-6.jpg";
+import oficio1 from "@/assets/sobre-oficio-1.jpeg.asset.json";
+import oficio2 from "@/assets/sobre-oficio-2.jpeg.asset.json";
 
 const PHONE = "916 328 909";
 const PHONE_RAW = "+351916328909";
@@ -160,12 +159,9 @@ function SobrePage() {
                 </div>
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <img src={work2} alt="Obra da Serralharia Marques Alves" className="aspect-[4/5] w-full rounded-md object-cover" />
-              <div className="flex flex-col gap-4">
-                <img src={work4} alt="Cobertura em painel sandwich" className="aspect-square w-full rounded-md object-cover" />
-                <img src={work6} alt="Estrutura metálica" className="aspect-square w-full rounded-md object-cover" />
-              </div>
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+              <img src={oficio1.url} alt="Equipa da Serralharia Marques Alves em obra" className="aspect-[4/5] w-full rounded-md object-cover" />
+              <img src={oficio2.url} alt="Técnico em estrutura metálica" className="aspect-[4/5] w-full rounded-md object-cover" />
             </div>
           </div>
         </section>
