@@ -360,7 +360,7 @@ function WhyUs() {
   return (
     <section id="porque" className="relative isolate overflow-hidden bg-secondary py-16 text-secondary-foreground sm:py-24">
       <div className="absolute inset-0 z-0">
-        <img src={sobreBg.url} alt="" className="h-full w-full object-cover object-center" />
+        <img src={sobreBg.url} alt="" className="h-[118%] w-full object-cover object-top" />
         <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/85 to-secondary/55" />
         <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/40 to-secondary/70" />
       </div>
