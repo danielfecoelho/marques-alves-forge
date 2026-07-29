@@ -21,6 +21,7 @@ type ServiceContent = {
   highlights: { title: string; desc: string }[];
   process: { step: string; title: string; desc: string }[];
   gallery: string[];
+  completed: string;
 };
 
 const CONTENT: Record<string, ServiceContent> = {
@@ -43,6 +44,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "04", title: "Nova cobertura", desc: "Montagem imediata do novo painel sandwich e entrega da obra." },
     ],
     gallery: [work1, work3, work5, work2],
+    completed: "+ de 150 remoções concluídas",
   },
   "coberturas-painel-sandwich": {
     title: "Coberturas em Painel Sandwich",
@@ -63,6 +65,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "04", title: "Montagem", desc: "Instalação, remates e limpeza final da obra." },
     ],
     gallery: [work4, work6, work2, work5],
+    completed: "+ de 250 coberturas executadas",
   },
   "estruturas-metalicas": {
     title: "Estruturas Metálicas",
@@ -83,6 +86,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "04", title: "Montagem em obra", desc: "Erguimento da estrutura e alinhamentos finais." },
     ],
     gallery: [work2, work4, work6, work7],
+    completed: "+ de 200 estruturas montadas",
   },
   "revestimento-fachadas": {
     title: "Revestimento de Fachadas",
@@ -103,6 +107,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "04", title: "Aplicação", desc: "Montagem, remates e limpeza da obra." },
     ],
     gallery: [work3, work5, work7, work1],
+    completed: "+ de 180 fachadas revestidas",
   },
 };
 
@@ -240,6 +245,12 @@ function ServicePage() {
               {data.intro}
             </p>
             <div className="mt-8 flex flex-wrap gap-4 sm:mt-10">
+              <div className="w-full">
+                <div className="inline-flex items-center gap-3 rounded-md border border-white/15 bg-white/5 px-4 py-2">
+                  <CheckCircle2 className="h-5 w-5 text-accent" />
+                  <span className="font-display text-sm font-semibold uppercase tracking-wider text-white sm:text-base">{data.completed}</span>
+                </div>
+              </div>
               <Button asChild size="lg" className="btn-accent-sweep h-14 w-full bg-white px-8 text-base text-black hover:bg-white/90 sm:w-auto">
                 <Link to="/" hash="contacto">
                   Pedir Orçamento
