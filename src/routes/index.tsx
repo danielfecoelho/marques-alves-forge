@@ -120,7 +120,7 @@ function Hero() {
   const slides = [heroImage, heroSlide2.url, heroSlide3.url, heroSlide4.url, heroSlide5.url];
   const [current, setCurrent] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 4500);
+    const id = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 5000);
     return () => clearInterval(id);
   }, [slides.length]);
   return (
@@ -129,7 +129,7 @@ function Hero() {
         {slides.map((src, i) => {
           // Mobile: pull last 3 slides left so people are visible.
           // Desktop: pull the 4th slide (index 3) slightly left so subject clears the text.
-          const mobilePos = i >= 2 ? "object-left" : "object-right";
+          const mobilePos = i >= 2 ? "object-center" : "object-right";
           const desktopPos = i === 3 ? "sm:object-[30%_center]" : "sm:object-center";
           return (
             <img
