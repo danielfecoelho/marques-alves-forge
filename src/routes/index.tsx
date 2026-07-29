@@ -359,10 +359,10 @@ function GalleryAlbums() {
 function WhyUs() {
   return (
     <section id="porque" className="relative isolate overflow-hidden bg-secondary py-16 text-secondary-foreground sm:py-24">
-      <div className="absolute inset-0 z-0 overflow-hidden">
-        <img src={sobreBg.url} alt="" className="h-full w-full scale-110 object-contain object-center" />
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/60 to-secondary/25" />
-        <div className="absolute inset-0 bg-gradient-to-t from-secondary/80 via-secondary/20 to-secondary/45" />
+      <div className="absolute inset-0 z-0">
+        <img src={sobreBg.url} alt="" className="h-full w-full object-cover object-center" />
+        <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/85 to-secondary/55" />
+        <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/40 to-secondary/70" />
       </div>
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6">
         <div className="grid gap-10 sm:gap-16 lg:grid-cols-[1fr_1.4fr] lg:items-center">
