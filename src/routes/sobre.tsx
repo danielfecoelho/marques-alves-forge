@@ -112,8 +112,8 @@ function SobrePage() {
         <section className="relative isolate overflow-hidden bg-secondary text-secondary-foreground">
           <div className="absolute inset-0 -z-10">
             <img src={sobreBg.url} alt="" className="h-[118%] w-full object-cover object-top" />
-            <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/80 to-secondary/40" />
-            <div className="absolute inset-0 bg-gradient-to-t from-secondary/95 via-secondary/50 to-secondary/70" />
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary via-secondary/70 to-secondary/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary/85 via-secondary/40 to-secondary/60" />
           </div>
           <div className="mx-auto max-w-7xl px-4 py-20 text-left sm:px-6 sm:py-24 md:py-32">
             <Link to="/" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
