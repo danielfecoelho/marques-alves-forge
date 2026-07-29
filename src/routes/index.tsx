@@ -6,6 +6,7 @@ import { Phone, MessageCircle, Mail, MapPin, ArrowRight, Building2, HardHat, Doo
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/hero-technician.jpg";
 import logo from "@/assets/logo-original.png";
+import sobreBg from "@/assets/sobre-bg.jpeg.asset.json";
 import work1 from "@/assets/work-1.jpg";
 import work2 from "@/assets/work-2.jpg";
 import work3 from "@/assets/work-3.jpg";
