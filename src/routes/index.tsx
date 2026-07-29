@@ -120,23 +120,29 @@ function Hero() {
   const slides = [heroImage, heroSlide2.url, heroSlide3.url, heroSlide4.url, heroSlide5.url];
   const [current, setCurrent] = useState(0);
   useEffect(() => {
-    const id = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 3000);
+    const id = setInterval(() => setCurrent((c) => (c + 1) % slides.length), 4500);
     return () => clearInterval(id);
   }, [slides.length]);
   return (
     <section id="top" className="relative isolate overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        {slides.map((src, i) => (
-          <img
-            key={src}
-            src={src}
-            alt=""
-            width={1920}
-            height={1280}
-            aria-hidden={i !== current}
-            className={`absolute inset-0 h-full w-full object-cover object-right transition-opacity duration-1000 ease-in-out sm:object-center ${i === current ? "opacity-100" : "opacity-0"}`}
-          />
-        ))}
+        {slides.map((src, i) => {
+          // Mobile: pull last 3 slides left so people are visible.
+          // Desktop: pull the 4th slide (index 3) slightly left so subject clears the text.
+          const mobilePos = i >= 2 ? "object-left" : "object-right";
+          const desktopPos = i === 3 ? "sm:object-[30%_center]" : "sm:object-center";
+          return (
+            <img
+              key={src}
+              src={src}
+              alt=""
+              width={1920}
+              height={1280}
+              aria-hidden={i !== current}
+              className={`absolute inset-0 h-full w-full object-cover ${mobilePos} ${desktopPos} transition-opacity duration-1000 ease-in-out ${i === current ? "opacity-100" : "opacity-0"}`}
+            />
+          );
+        })}
         <div className="absolute inset-0" style={{ background: "var(--gradient-hero)" }} />
         <div className="absolute inset-0 bg-secondary/7" />
       </div>
