@@ -264,7 +264,14 @@ function ServicePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">Porquê connosco</span>
             <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Um serviço completo</h2>
-            <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-3">
+            <div
+              className={
+                "mt-8 grid gap-6 sm:mt-10 " +
+                (data.highlights.length === 2
+                  ? "grid-cols-1 md:grid-cols-2 md:max-w-4xl"
+                  : "grid-cols-1 md:grid-cols-3")
+              }
+            >
               {data.highlights.map((h) => (
                 <div key={h.title} className="rounded-md border border-border bg-card p-7">
                   <CheckCircle2 className="h-6 w-6 text-accent" />
