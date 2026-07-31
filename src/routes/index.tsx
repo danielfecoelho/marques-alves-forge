@@ -437,7 +437,7 @@ function Contact() {
                 Tem um projeto em mente?
               </h2>
               <p className="mt-4 text-secondary-foreground/75">
-                Resposta rápida em menos de 24 horas. Ligue, envie mensagem ou visite-nos.
+                Ligue, envie mensagem ou visite-nos.
               </p>
               <div className="mt-8 space-y-5">
                 <div className="group flex items-center gap-4">
@@ -540,7 +540,7 @@ function ContactForm() {
       });
       if (!res.ok) throw new Error("send failed");
       toast.success("Pedido enviado!", {
-        description: "Entraremos em contacto em menos de 24h.",
+        description: "Entraremos em contacto consigo brevemente.",
       });
       setValues({ name: "", phone: "", email: "", workType: "Remoção de Amianto", message: "" });
     } catch {
