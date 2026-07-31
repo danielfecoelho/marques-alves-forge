@@ -47,10 +47,10 @@ const CONTENT: Record<string, ServiceContent> = {
     completed: "+ de 150 remoções concluídas",
   },
   "coberturas-painel-sandwich": {
-    title: "Coberturas em Painel Sandwich",
+    title: "Coberturas em Painel Sandwich / Coberturas Deck",
     tagline: "Isolamento térmico e acústico com montagem rápida",
     intro:
-      "Fornecemos e aplicamos coberturas em painel sandwich novas ou recuperadas para pavilhões industriais, armazéns, garagens e anexos residenciais. Garantimos estanquicidade, isolamento e um acabamento limpo.",
+      "Fornecemos e aplicamos coberturas em painel sandwich e cobertura deck para pavilhões industriais e armazéns. Garantimos estanquicidade, isolamento e um acabamento limpo.",
     icon: HardHat,
     hero: work4,
     highlights: [

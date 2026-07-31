@@ -40,7 +40,7 @@ const openExternal = (url: string) => (e: React.MouseEvent) => {
 
 const services = [
   { slug: "remocao-amianto", icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
-  { slug: "coberturas-painel-sandwich", icon: HardHat, title: "Coberturas em Painel Sandwich", desc: "Revestimentos de coberturas em painel sandwich, novos ou recuperados, com execução rápida." },
+  { slug: "coberturas-painel-sandwich", icon: HardHat, title: "Coberturas em Painel Sandwich / Coberturas Deck", desc: "Revestimentos de coberturas em painel sandwich e cobertura deck, com execução rápida." },
   { slug: "estruturas-metalicas", icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, armazéns e estruturas industriais executadas com precisão e robustez." },
   { slug: "revestimento-fachadas", icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
 ];
@@ -63,7 +63,7 @@ const galleryCategories = [
   },
   {
     id: "sandwich",
-    label: "Cobertura em Painel Sandwich",
+    label: "Coberturas em Painel Sandwich / Coberturas Deck",
     images: [work4, work6, work2, work5, work7, work1, work3, work4, work6, work2, work5, work7],
   },
 ] as const;
@@ -155,7 +155,7 @@ function Hero() {
             Soluções metálicas <span className="relative inline-block text-white"><span className="relative z-10">feitas para durar</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
           </h1>
           <p className="mt-6 max-w-2xl text-base text-secondary-foreground/85 sm:text-lg md:text-xl">
-            Especialistas em remoção de amianto, coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas em todo o país.
+            Especialistas em remoção de amianto, coberturas em painel sandwich / coberturas deck, revestimentos de fachada e estruturas metálicas em todo o país.
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:mt-10 sm:flex-row sm:flex-wrap sm:gap-4">
             <Button asChild size="lg" className="btn-accent-sweep h-14 w-full bg-white px-8 text-base text-black shadow-[var(--shadow-glow)] hover:bg-white/90 sm:w-auto">
@@ -398,7 +398,7 @@ function WhyUs() {
               Construímos <span className="relative inline-block text-white"><span className="relative z-10">solidez e segurança</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
             </h2>
             <p className="mt-5 text-secondary-foreground/75 text-justify">
-              A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
+              A Serralharia Marques Alves é reconhecida pela eficácia e qualidade nos seus serviços: remoção de amianto, revestimentos de coberturas em painel sandwich / coberturas deck, revestimentos de fachada e estruturas metálicas. No nosso armazém, dispomos também de painéis sandwich novos ou usados e praticamente todo o tipo de ferro para venda ao público (limitado ao stock existente).
             </p>
             <div className="mt-8 flex justify-center lg:justify-start">
               <Button asChild size="lg" className="btn-accent-sweep h-12 bg-white px-7 text-sm text-black hover:bg-white/90">
@@ -585,7 +585,7 @@ function ContactForm() {
         <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tipo de Trabalho</label>
         <select value={values.workType} onChange={update("workType")} className={fieldClass(errors.workType)}>
           <option>Remoção de Amianto</option>
-          <option>Coberturas em Painel Sandwich</option>
+          <option>Coberturas em Painel Sandwich / Coberturas Deck</option>
           <option>Revestimento de Fachadas</option>
           <option>Estruturas Metálicas</option>
           <option>Venda de Painéis / Ferro</option>
