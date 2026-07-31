@@ -35,7 +35,7 @@ const CONTENT: Record<string, ServiceContent> = {
     highlights: [
       { title: "Equipa certificada", desc: "Técnicos com formação específica em remoção de materiais com amianto." },
       { title: "Transporte licenciado", desc: "Recolha, transporte e encaminhamento para operador autorizado." },
-      { title: "Substituição imediata", desc: "Instalação de nova cobertura em painel sandwich no mesmo estaleiro." },
+      { title: "Substituição imediata", desc: "Instalação de nova cobertura em painel sandwich." },
     ],
     process: [
       { step: "01", title: "Avaliação técnica", desc: "Visita ao local, medição e proposta detalhada, sem compromisso." },
