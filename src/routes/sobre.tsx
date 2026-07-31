@@ -231,7 +231,7 @@ function SobrePage() {
               Pronto para avançar com o seu projeto?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-              Peça um orçamento gratuito e sem compromisso. Resposta em menos de 24 horas.
+              Peça um orçamento gratuito e sem compromisso.
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-4">
               <Button asChild size="lg" className="btn-accent-sweep h-14 px-8 text-base">
