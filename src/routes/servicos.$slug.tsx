@@ -91,16 +91,16 @@ const CONTENT: Record<string, ServiceContent> = {
     title: "Revestimento de Fachadas",
     tagline: "Fachadas industriais e comerciais com acabamento duradouro",
     intro:
-      "Aplicamos revestimentos de fachada em chapa lacada e painel sandwich para edifícios industriais e comerciais. Um acabamento uniforme, estanque e com longa vida útil.",
+      "Aplicamos revestimentos de fachada em chapa perfilada e painel sandwich para pavilhões industriais. Um acabamento uniforme, estanque e com longa vida útil.",
     icon: DoorOpen,
     hero: work3,
     highlights: [
       { title: "Chapa e painel", desc: "Várias soluções e cores para adaptar a cada projeto." },
-      { title: "Remates limpos", desc: "Cunhais, cantos e vãos executados com rigor." },
+      { title: "Remates limpos", desc: "Todos os acabamentos executados com rigor." },
       { title: "Manutenção reduzida", desc: "Materiais resistentes à corrosão e aos agentes atmosféricos." },
     ],
     process: [
-      { step: "01", title: "Análise do edifício", desc: "Medição das fachadas e escolha do sistema mais adequado." },
+      { step: "01", title: "Análise do Projeto", desc: "Medição das fachadas e escolha do sistema mais adequado." },
       { step: "02", title: "Proposta", desc: "Orçamento com materiais, cores e prazos." },
       { step: "03", title: "Preparação", desc: "Fornecimento dos painéis e acessórios necessários." },
       { step: "04", title: "Aplicação", desc: "Montagem, remates e limpeza da obra." },
