@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, ShieldCheck, Award, Hammer, Users, Wrench, PackageCheck, Menu, X } from "lucide-react";
+import { ArrowLeft, ArrowRight, ShieldCheck, Award, Hammer, Users, Wrench, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
 import sobreBg from "@/assets/sobre-bg.jpeg.asset.json";
@@ -35,15 +35,14 @@ const values = [
 ];
 
 const timeline = [
-  { year: "2009", title: "Início da atividade", desc: "Arranque em Pedome com foco em serralharia civil e pequenas estruturas." },
-  { year: "2014", title: "Especialização em coberturas", desc: "Expansão para coberturas em painel sandwich / coberturas deck e revestimentos de fachada." },
-  { year: "2018", title: "Certificação em amianto", desc: "Equipa preparada e licenciada para remoção segura de fibrocimento." },
-  { year: "2024", title: "Obras em todo o país", desc: "Presença consolidada em projetos industriais e comerciais de norte a sul." },
+  { year: "2022", title: "Início da atividade", desc: "Arranque em Pedome com foco em serralharia civil e pequenas estruturas." },
+  { year: "2023", title: "Especialização em coberturas", desc: "Expansão para coberturas em painel sandwich / coberturas deck e revestimentos de fachada." },
+  { year: "2024", title: "Certificação em amianto", desc: "Equipa preparada e licenciada para remoção segura de fibrocimento." },
+  { year: "2016", title: "Obras em todo o país", desc: "Presença consolidada em projetos industriais e comerciais de norte a sul." },
 ];
 
 const capabilities = [
   { icon: Wrench, title: "Oficina própria", desc: "Corte, furação e soldadura executados nas nossas instalações em Pedome." },
-  { icon: PackageCheck, title: "Stock permanente", desc: "Painéis sandwich novos e usados e diversos tipos de ferro para venda ao público." },
   { icon: Hammer, title: "Montagem em obra", desc: "Equipas móveis prontas a intervir em pavilhões, armazéns e edifícios comerciais." },
 ];
 
@@ -142,7 +141,7 @@ function SobrePage() {
                 A Serralharia Marques Alves nasceu para dar resposta a quem procura um parceiro de confiança para obras metálicas exigentes. Trabalhamos lado a lado com o cliente, do primeiro esboço à entrega da obra, com a garantia de que o que fazemos é feito para durar.
               </p>
               <p className="mt-4 text-muted-foreground text-justify">
-                Combinamos oficina própria, stock permanente de materiais e uma equipa experiente em obra. Assim conseguimos responder rapidamente — seja um pavilhão industrial completo, uma cobertura em painel sandwich / cobertura deck ou a remoção segura de coberturas em fibrocimento.
+                Combinamos oficina própria e várias equipas experientes em obra. Assim conseguimos responder rapidamente — seja um pavilhão industrial completo, uma cobertura em painel sandwich / cobertura deck ou a remoção segura de coberturas em fibrocimento.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-6">
                 <div>
@@ -207,12 +206,12 @@ function SobrePage() {
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="max-w-2xl">
               <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Capacidade instalada</span>
-              <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Pronta resposta, do projeto à obra</h2>
+              <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Capacidade de resposta, do projeto à obra</h2>
               <p className="mt-4 text-muted-foreground">
                 Contamos com meios próprios que nos permitem controlar prazos e qualidade em cada etapa.
               </p>
             </div>
-            <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-3">
+            <div className="mt-8 grid grid-cols-1 gap-6 sm:mt-10 md:grid-cols-2">
               {capabilities.map((c) => (
                 <div key={c.title} className="rounded-md border border-border bg-background p-7">
                   <c.icon className="h-7 w-7 text-accent" />
