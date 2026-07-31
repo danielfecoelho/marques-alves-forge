@@ -28,10 +28,10 @@ const PHONE_RAW = "+351916328909";
 const PHONE_2 = "914 468 612";
 const PHONE_2_RAW = "+351914468612";
 const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
-const EMAIL = "geral@serralhariamarquesalves.pt";
+const EMAIL = "serralhariamarquesalves@gmail.com";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
 const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Rua de Real, 4765-148 Pedome");
-const SCHEDULE = "Seg a Sex · 07:00 – 18:00";
+const SCHEDULE = "Seg a Sex · 08:00 – 18:00";
 
 const openExternal = (url: string) => (e: React.MouseEvent) => {
   e.preventDefault();
@@ -149,7 +149,7 @@ function Hero() {
       <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 md:py-40">
         <div className="max-w-3xl">
           <p className="text-base text-secondary-foreground/85 sm:text-lg md:text-xl">
-            Serralharia em Pedome <span className="hidden sm:inline">· </span><br className="sm:hidden" />ao serviço de todo o país
+            Ao serviço de todo o país
           </p>
           <h1 className="mt-5 font-display text-4xl font-bold uppercase leading-[1.05] tracking-tight text-secondary-foreground sm:text-5xl md:text-7xl">
             Soluções metálicas <span className="relative inline-block text-white"><span className="relative z-10">feitas para durar</span><span aria-hidden className="absolute inset-x-0 bottom-1 -z-0 h-3 bg-accent/70 md:h-4" /></span>
@@ -169,7 +169,7 @@ function Hero() {
           </div>
           <div className="mt-10 grid max-w-xl grid-cols-3 gap-4 border-t border-secondary-foreground/15 pt-6 sm:mt-12 sm:gap-6">
             <div>
-              <div className="font-display text-2xl font-bold text-white sm:text-3xl">15+</div>
+              <div className="font-display text-2xl font-bold text-white sm:text-3xl">10+</div>
               <div className="text-xs uppercase tracking-wider text-secondary-foreground/70">Anos de experiência</div>
             </div>
             <div>
@@ -607,7 +607,7 @@ function ContactForm() {
         {submitting ? "A enviar..." : (<>Enviar Pedido <ArrowRight className="h-5 w-5" /></>)}
       </Button>
       <p className="flex items-center gap-2 text-xs text-muted-foreground">
-        <CheckCircle2 className="h-4 w-4 text-primary" /> Sem compromisso. Resposta em menos de 24h.
+        <CheckCircle2 className="h-4 w-4 text-primary" /> Orçamento sem compromisso.
       </p>
     </form>
   );
