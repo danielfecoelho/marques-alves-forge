@@ -38,7 +38,7 @@ const timeline = [
   { year: "2022", title: "Início da atividade", desc: "Arranque em Pedome com foco em serralharia civil e pequenas estruturas." },
   { year: "2023", title: "Especialização em coberturas", desc: "Expansão para coberturas em painel sandwich / coberturas deck e revestimentos de fachada." },
   { year: "2024", title: "Certificação em amianto", desc: "Equipa preparada e licenciada para remoção segura de fibrocimento." },
-  { year: "2016", title: "Obras em todo o país", desc: "Presença consolidada em projetos industriais e comerciais de norte a sul." },
+  { year: "2026", title: "Obras em todo o país", desc: "Presença consolidada em projetos industriais e comerciais de norte a sul." },
 ];
 
 const capabilities = [
@@ -205,7 +205,7 @@ function SobrePage() {
         <section className="bg-muted py-14 sm:py-20">
           <div className="mx-auto max-w-7xl px-4 sm:px-6">
             <div className="max-w-2xl">
-              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Capacidade instalada</span>
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Recursos próprios</span>
               <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">Capacidade de resposta, do projeto à obra</h2>
               <p className="mt-4 text-muted-foreground">
                 Contamos com meios próprios que nos permitem controlar prazos e qualidade em cada etapa.
