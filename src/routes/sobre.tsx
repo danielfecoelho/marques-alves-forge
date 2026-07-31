@@ -146,7 +146,7 @@ function SobrePage() {
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-6">
                 <div>
-                  <div className="font-display text-2xl font-bold text-foreground sm:text-3xl">15+</div>
+                  <div className="font-display text-2xl font-bold text-foreground sm:text-3xl">10+</div>
                   <div className="text-xs uppercase tracking-wider text-muted-foreground">Anos de experiência</div>
                 </div>
                 <div>
