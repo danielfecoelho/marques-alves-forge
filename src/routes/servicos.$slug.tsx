@@ -205,6 +205,7 @@ function PageFooter() {
 
 function ServicePage() {
   const { data } = Route.useLoaderData() as { data: ServiceContent };
+  const { slug } = Route.useParams();
   const Icon = data.icon;
 
   return (
@@ -299,6 +300,31 @@ function ServicePage() {
             </div>
           </div>
         </section>
+
+        {/* Descontaminação — only amianto */}
+        {slug === "remocao-amianto" && (
+          <section className="bg-background py-14 sm:py-20">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6">
+              <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">Recursos próprios</span>
+              <h2 className="mt-3 font-display text-2xl font-bold uppercase text-foreground sm:text-3xl md:text-4xl">
+                Unidade de descontaminação
+              </h2>
+              <div className="mt-6 grid gap-8 lg:grid-cols-[1.2fr_1fr] lg:items-center">
+                <p className="text-muted-foreground text-justify sm:text-lg">
+                  Disponibilizamos uma <span className="font-semibold text-foreground">unidade de descontaminação</span> própria, equipada e em conformidade com a legislação aplicável à remoção de amianto. Para além da utilização nas nossas obras, esta unidade está também <span className="font-semibold text-foreground">disponível para aluguer a outras empresas</span> do setor que necessitem de cumprir os requisitos legais de proteção dos trabalhadores. Contacte-nos para condições e disponibilidade.
+                </p>
+                <div className="rounded-md border border-border bg-card p-7">
+                  <ShieldCheck className="h-7 w-7 text-accent" />
+                  <h3 className="mt-4 font-display text-lg font-semibold uppercase text-foreground">Aluguer para terceiros</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">Unidade móvel pronta a disponibilizar a outras empresas com necessidade de descontaminação de trabalhadores em obra.</p>
+                  <Button asChild size="sm" className="btn-accent-sweep mt-6">
+                    <Link to="/" hash="contacto">Saber mais <ArrowRight className="h-4 w-4" /></Link>
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Gallery */}
         <section className="bg-muted py-14 sm:py-20">
