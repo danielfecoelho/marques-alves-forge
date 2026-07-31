@@ -54,14 +54,13 @@ const CONTENT: Record<string, ServiceContent> = {
     icon: HardHat,
     hero: work4,
     highlights: [
-      { title: "Painéis novos e usados", desc: "Stock permanente no armazém para respostas rápidas." },
       { title: "Isolamento eficiente", desc: "Material isolante de acordo com as especificações técnicas do projeto." },
       { title: "Instalação rápida", desc: "Equipas experientes que minimizam a paragem da atividade." },
     ],
     process: [
       { step: "01", title: "Levantamento", desc: "Medição do vão, análise da estrutura existente e escolha do painel." },
       { step: "02", title: "Proposta clara", desc: "Orçamento detalhado com prazos, materiais e mão de obra." },
-      { step: "03", title: "Fornecimento", desc: "Preparação dos painéis, remates e acessórios em armazém próprio." },
+      { step: "03", title: "Fornecimento", desc: "Preparação dos painéis, remates e acessórios." },
       { step: "04", title: "Montagem", desc: "Instalação, remates e limpeza final da obra." },
     ],
     gallery: [work4, work6, work2, work5],
