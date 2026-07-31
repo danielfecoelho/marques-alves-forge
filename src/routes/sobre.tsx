@@ -36,7 +36,7 @@ const values = [
 
 const timeline = [
   { year: "2009", title: "Início da atividade", desc: "Arranque em Pedome com foco em serralharia civil e pequenas estruturas." },
-  { year: "2014", title: "Especialização em coberturas", desc: "Expansão para coberturas em painel sandwich e revestimentos de fachada." },
+  { year: "2014", title: "Especialização em coberturas", desc: "Expansão para coberturas em painel sandwich / coberturas deck e revestimentos de fachada." },
   { year: "2018", title: "Certificação em amianto", desc: "Equipa preparada e licenciada para remoção segura de fibrocimento." },
   { year: "2024", title: "Obras em todo o país", desc: "Presença consolidada em projetos industriais e comerciais de norte a sul." },
 ];
@@ -142,7 +142,7 @@ function SobrePage() {
                 A Serralharia Marques Alves nasceu para dar resposta a quem procura um parceiro de confiança para obras metálicas exigentes. Trabalhamos lado a lado com o cliente, do primeiro esboço à entrega da obra, com a garantia de que o que fazemos é feito para durar.
               </p>
               <p className="mt-4 text-muted-foreground text-justify">
-                Combinamos oficina própria, stock permanente de materiais e uma equipa experiente em obra. Assim conseguimos responder rapidamente — seja um pavilhão industrial completo, uma cobertura em painel sandwich ou a remoção segura de coberturas em fibrocimento.
+                Combinamos oficina própria, stock permanente de materiais e uma equipa experiente em obra. Assim conseguimos responder rapidamente — seja um pavilhão industrial completo, uma cobertura em painel sandwich / cobertura deck ou a remoção segura de coberturas em fibrocimento.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-6">
                 <div>
