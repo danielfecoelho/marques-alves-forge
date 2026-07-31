@@ -42,7 +42,7 @@ const services = [
   { slug: "remocao-amianto", icon: ShieldCheck, title: "Remoção de Amianto", desc: "Remoção certificada e segura de coberturas em fibrocimento, com substituição por novos materiais." },
   { slug: "coberturas-painel-sandwich", icon: HardHat, title: "Coberturas em Painel Sandwich / Coberturas Deck", desc: "Revestimentos de coberturas em painel sandwich e cobertura deck, com execução rápida." },
   { slug: "estruturas-metalicas", icon: Building2, title: "Estruturas Metálicas", desc: "Pavilhões, armazéns e estruturas industriais executadas com precisão e robustez." },
-  { slug: "revestimento-fachadas", icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para edifícios industriais e comerciais." },
+  { slug: "revestimento-fachadas", icon: DoorOpen, title: "Revestimento de Fachadas", desc: "Revestimentos de fachada em chapa e painel para pavilhões industriais." },
 ];
 
 const galleryCategories = [
