@@ -82,7 +82,7 @@ export const Route = createFileRoute("/api/public/contact")({
         `;
 
         const payload: Record<string, unknown> = {
-          from: "Website Serralharia <onboarding@resend.dev>",
+          from: "Website Serralharia <contacto@serralhariamarquesalves.pt>",
           to: [RECIPIENT],
           subject: `Novo pedido de orçamento — ${name}`,
           html,
