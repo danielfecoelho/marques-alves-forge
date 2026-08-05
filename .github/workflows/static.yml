@@ -29,8 +29,20 @@ jobs:
       - name: Build project
         run: bun run build
 
-      - name: Fix SPA Router Routing for GitHub Pages
-        run: cp dist/index.html dist/404.html
+      - name: Find build folder and add 404
+        run: |
+          if [ -d "dist" ]; then
+            echo "DIRECTORY_PATH=dist" >> $GITHUB_ENV
+            cp dist/index.html dist/404.html
+          elif [ -d "build" ]; then
+            echo "DIRECTORY_PATH=build" >> $GITHUB_ENV
+            cp build/index.html build/404.html
+          elif [ -d ".output/public" ]; then
+            echo "DIRECTORY_PATH=.output/public" >> $GITHUB_ENV
+            cp .output/public/index.html .output/public/404.html
+          else
+            echo "DIRECTORY_PATH=." >> $GITHUB_ENV
+          fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -38,7 +50,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: './dist'
+          path: ${{ env.DIRECTORY_PATH }}
 
       - name: Deploy to GitHub Pages
         id: deployment
