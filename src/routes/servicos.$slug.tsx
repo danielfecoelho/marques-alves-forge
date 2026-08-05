@@ -117,7 +117,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "03", title: "Preparação", desc: "Fornecimento dos painéis e acessórios necessários." },
       { step: "04", title: "Aplicação", desc: "Montagem, remates e limpeza da obra." },
     ],
-    gallery: [work3, work5, work7, work1],
+    gallery: [fa1.url, fa2.url, fa6.url, fa8.url],
     completed: "+ de 180 fachadas revestidas",
   },
 };
