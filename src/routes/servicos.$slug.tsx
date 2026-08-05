@@ -11,6 +11,10 @@ import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
 import work7 from "@/assets/work-7.jpg";
 import amiantoHero from "@/assets/amianto-hero.png.asset.json";
+import am1 from "@/assets/amianto-1.jpeg.asset.json";
+import am2 from "@/assets/amianto-2.jpeg.asset.json";
+import am3 from "@/assets/amianto-3.jpeg.asset.json";
+import am4 from "@/assets/amianto-4.jpeg.asset.json";
 
 type ServiceContent = {
   title: string;
@@ -43,7 +47,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "03", title: "Remoção segura", desc: "Desmontagem controlada, embalamento e recolha por operador licenciado." },
       { step: "04", title: "Nova cobertura", desc: "Montagem imediata do novo painel sandwich e entrega da obra." },
     ],
-    gallery: [work1, work3, work5, work2],
+    gallery: [am1.url, am2.url, am3.url, am4.url],
     completed: "+ de 150 remoções concluídas",
   },
   "coberturas-painel-sandwich": {
