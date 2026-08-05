@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -110,6 +110,28 @@ const CONTENT: Record<string, ServiceContent> = {
   },
 };
 
+function ServiceError({ reset }: { error: Error; reset: () => void }) {
+  const router = useRouter();
+  return (
+    <div className="flex min-h-screen items-center justify-center bg-background px-4">
+      <div className="max-w-md text-center">
+        <h1 className="font-display text-4xl font-bold uppercase text-foreground">Não foi possível carregar o serviço</h1>
+        <p className="mt-3 text-sm text-muted-foreground">Ocorreu um erro inesperado. Tente novamente.</p>
+        <button
+          type="button"
+          onClick={() => {
+            router.invalidate();
+            reset();
+          }}
+          className="mt-6 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
+        >
+          Tentar novamente
+        </button>
+      </div>
+    </div>
+  );
+}
+
 export const Route = createFileRoute("/servicos/$slug")({
   loader: ({ params }) => {
     if (!CONTENT[params.slug]) throw notFound();
@@ -134,6 +156,7 @@ export const Route = createFileRoute("/servicos/$slug")({
     };
   },
   component: ServicePage,
+  errorComponent: ServiceError,
   notFoundComponent: ServiceNotFound,
 });
 
