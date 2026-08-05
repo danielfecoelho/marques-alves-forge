@@ -19,6 +19,10 @@ import es1 from "@/assets/estrutura-1.jpeg.asset.json";
 import es2 from "@/assets/estrutura-2.jpeg.asset.json";
 import es3 from "@/assets/estrutura-3.jpeg.asset.json";
 import es6 from "@/assets/estrutura-6.jpeg.asset.json";
+import fa1 from "@/assets/fachada-1.jpeg.asset.json";
+import fa2 from "@/assets/fachada-2.jpeg.asset.json";
+import fa6 from "@/assets/fachada-6.jpeg.asset.json";
+import fa8 from "@/assets/fachada-8.jpeg.asset.json";
 
 type ServiceContent = {
   title: string;
@@ -101,7 +105,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Aplicamos revestimentos de fachada em chapa perfilada e painel sandwich para pavilhões industriais. Um acabamento uniforme, estanque e com longa vida útil.",
     icon: DoorOpen,
-    hero: work3,
+    hero: fa1.url,
     highlights: [
       { title: "Chapa e painel", desc: "Várias soluções e cores para adaptar a cada projeto." },
       { title: "Remates limpos", desc: "Todos os acabamentos executados com rigor." },
@@ -113,7 +117,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "03", title: "Preparação", desc: "Fornecimento dos painéis e acessórios necessários." },
       { step: "04", title: "Aplicação", desc: "Montagem, remates e limpeza da obra." },
     ],
-    gallery: [work3, work5, work7, work1],
+    gallery: [fa1.url, fa2.url, fa6.url, fa8.url],
     completed: "+ de 180 fachadas revestidas",
   },
 };
