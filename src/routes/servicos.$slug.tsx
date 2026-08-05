@@ -19,6 +19,10 @@ import es1 from "@/assets/estrutura-1.jpeg.asset.json";
 import es2 from "@/assets/estrutura-2.jpeg.asset.json";
 import es3 from "@/assets/estrutura-3.jpeg.asset.json";
 import es6 from "@/assets/estrutura-6.jpeg.asset.json";
+import fa1 from "@/assets/fachada-1.jpeg.asset.json";
+import fa2 from "@/assets/fachada-2.jpeg.asset.json";
+import fa6 from "@/assets/fachada-6.jpeg.asset.json";
+import fa8 from "@/assets/fachada-8.jpeg.asset.json";
 
 type ServiceContent = {
   title: string;
