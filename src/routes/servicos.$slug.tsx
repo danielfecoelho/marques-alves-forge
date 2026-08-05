@@ -1,4 +1,4 @@
-import { createFileRoute, Link, notFound, useRouter } from "@tanstack/react-router";
+import { createFileRoute, Link, notFound } from "@tanstack/react-router";
 import { useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -110,53 +110,27 @@ const CONTENT: Record<string, ServiceContent> = {
   },
 };
 
-function ServiceError({ reset }: { error: Error; reset: () => void }) {
-  const router = useRouter();
-  return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="font-display text-4xl font-bold uppercase text-foreground">Não foi possível carregar o serviço</h1>
-        <p className="mt-3 text-sm text-muted-foreground">Ocorreu um erro inesperado. Tente novamente.</p>
-        <button
-          type="button"
-          onClick={() => {
-            router.invalidate();
-            reset();
-          }}
-          className="mt-6 rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground"
-        >
-          Tentar novamente
-        </button>
-      </div>
-    </div>
-  );
-}
-
 export const Route = createFileRoute("/servicos/$slug")({
   loader: ({ params }) => {
-    if (!CONTENT[params.slug]) throw notFound();
-    return { slug: params.slug };
+    const data = CONTENT[params.slug];
+    if (!data) throw notFound();
+    return { data };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Serviço não encontrado" }, { name: "robots", content: "noindex" }] };
     }
-    const data = CONTENT[loaderData.slug];
-    if (!data) {
-      return { meta: [{ title: "Serviço não encontrado" }, { name: "robots", content: "noindex" }] };
-    }
-    const t = `${data.title} — Serralharia Marques Alves`;
+    const t = `${loaderData.data.title} — Serralharia Marques Alves`;
     return {
       meta: [
         { title: t },
-        { name: "description", content: data.intro.slice(0, 160) },
+        { name: "description", content: loaderData.data.intro.slice(0, 160) },
         { property: "og:title", content: t },
-        { property: "og:description", content: data.intro.slice(0, 160) },
+        { property: "og:description", content: loaderData.data.intro.slice(0, 160) },
       ],
     };
   },
   component: ServicePage,
-  errorComponent: ServiceError,
   notFoundComponent: ServiceNotFound,
 });
 
@@ -230,9 +204,8 @@ function PageFooter() {
 }
 
 function ServicePage() {
-  const { slug } = Route.useLoaderData();
-  const data = CONTENT[slug];
-  if (!data) throw notFound();
+  const { data } = Route.useLoaderData() as { data: ServiceContent };
+  const { slug } = Route.useParams();
   const Icon = data.icon;
 
   return (
