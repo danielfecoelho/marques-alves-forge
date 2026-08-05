@@ -218,7 +218,8 @@ function Hero() {
         {slides.map((src, i) => {
           // Mobile: pull last 3 slides left so people are visible.
           // Desktop: pull the 4th slide (index 3) slightly left so subject clears the text.
-          const mobilePos = i >= 2 ? "object-center" : "object-right";
+          // Slide 2 (index 1): center the worker on the lift.
+          const mobilePos = i >= 2 ? "object-center" : (i === 1 ? "object-center" : "object-right");
           const desktopPos = i === 3 ? "sm:object-[30%_center]" : "sm:object-center";
           return (
             <img
