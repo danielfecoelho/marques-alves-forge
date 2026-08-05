@@ -2,7 +2,6 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { z } from "zod";
 
-const GATEWAY_URL = "https://connector-gateway.lovable.dev/resend";
 const RECIPIENT = "daniel.fe.coelho@gmail.com";
 
 const contactSchema = z.object({
@@ -26,13 +25,31 @@ export const Route = createFileRoute("/api/public/contact")({
   server: {
     handlers: {
       POST: async ({ request }) => {
-        const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
         const RESEND_API_KEY = process.env.RESEND_API_KEY;
-        if (!LOVABLE_API_KEY || !RESEND_API_KEY) {
+        const LOVABLE_API_KEY = process.env.LOVABLE_API_KEY;
+        if (!RESEND_API_KEY) {
           return Response.json(
             { error: "Email service not configured" },
             { status: 500 },
           );
+        }
+
+        // Direct Resend API (works on any host: Netlify, Lovable, etc.).
+        // Falls back to the Lovable connector gateway when the key is a
+        // gateway connection key instead of a real Resend key (re_...).
+        const useGateway =
+          !RESEND_API_KEY.startsWith("re_") && Boolean(LOVABLE_API_KEY);
+        const endpoint = useGateway
+          ? "https://connector-gateway.lovable.dev/resend/emails"
+          : "https://api.resend.com/emails";
+        const headers: Record<string, string> = {
+          "Content-Type": "application/json",
+        };
+        if (useGateway) {
+          headers["Authorization"] = `Bearer ${LOVABLE_API_KEY}`;
+          headers["X-Connection-Api-Key"] = RESEND_API_KEY;
+        } else {
+          headers["Authorization"] = `Bearer ${RESEND_API_KEY}`;
         }
 
         let body: unknown;
@@ -72,13 +89,9 @@ export const Route = createFileRoute("/api/public/contact")({
         };
         if (email) payload.reply_to = email;
 
-        const res = await fetch(`${GATEWAY_URL}/emails`, {
+        const res = await fetch(endpoint, {
           method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${LOVABLE_API_KEY}`,
-            "X-Connection-Api-Key": RESEND_API_KEY,
-          },
+          headers,
           body: JSON.stringify(payload),
         });
 
