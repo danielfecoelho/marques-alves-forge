@@ -23,6 +23,11 @@ import fa1 from "@/assets/fachada-1.jpeg.asset.json";
 import fa2 from "@/assets/fachada-2.jpeg.asset.json";
 import fa6 from "@/assets/fachada-6.jpeg.asset.json";
 import fa8 from "@/assets/fachada-8.jpeg.asset.json";
+import co1 from "@/assets/cobertura-1.jpeg.asset.json";
+import co2 from "@/assets/cobertura-2.jpeg.asset.json";
+import co5 from "@/assets/cobertura-5.jpeg.asset.json";
+import co6 from "@/assets/cobertura-6.jpeg.asset.json";
+import co7 from "@/assets/cobertura-7.jpeg.asset.json";
 
 type ServiceContent = {
   title: string;
@@ -64,7 +69,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Fornecemos e aplicamos coberturas em painel sandwich e cobertura deck para pavilhões industriais e armazéns. Garantimos estanquicidade, isolamento e um acabamento limpo.",
     icon: HardHat,
-    hero: work4,
+    hero: co1.url,
     highlights: [
       { title: "Isolamento eficiente", desc: "Material isolante de acordo com as especificações técnicas do projeto." },
       { title: "Instalação rápida", desc: "Equipas experientes que minimizam a paragem da atividade." },
@@ -75,7 +80,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "03", title: "Fornecimento", desc: "Preparação dos painéis, remates e acessórios." },
       { step: "04", title: "Montagem", desc: "Instalação, remates e limpeza final da obra." },
     ],
-    gallery: [work4, work6, work2, work5],
+    gallery: [co2.url, co5.url, co6.url, co7.url],
     completed: "+ de 250 coberturas executadas",
   },
   "estruturas-metalicas": {
