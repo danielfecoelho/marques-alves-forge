@@ -2,7 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
 import { z } from "zod";
 
-const RECIPIENT = "daniel.fe.coelho@gmail.com";
+const RECIPIENT = "serralhariamarquesalves@gmail.com";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1).max(100),
