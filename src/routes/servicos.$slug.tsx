@@ -48,7 +48,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Executamos a remoção de coberturas em fibrocimento com equipas certificadas, transporte licenciado e destino final autorizado. Substituímos por soluções modernas em painel sandwich, prontas para décadas de uso.",
     icon: ShieldCheck,
-    hero: amiantoHero.url,
+    hero: am1.url,
     highlights: [
       { title: "Equipa certificada", desc: "Técnicos com formação específica em remoção de materiais com amianto." },
       { title: "Transporte licenciado", desc: "Recolha, transporte e encaminhamento para operador autorizado." },
@@ -89,7 +89,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Projetamos e executamos estruturas metálicas para pavilhões industriais, armazéns, coberturas de grandes vãos e ampliações. Trabalho de precisão com cálculo, corte, soldadura e montagem em obra.",
     icon: Building2,
-    hero: work2,
+    hero: es1.url,
     highlights: [
       { title: "Cálculo rigoroso", desc: "Projeto adaptado às cargas, vãos e utilização prevista." },
       { title: "Soldadura de qualidade", desc: "Execução por soldadores experientes, com acabamentos limpos." },
