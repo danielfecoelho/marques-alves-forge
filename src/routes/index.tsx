@@ -48,6 +48,16 @@ import es17 from "@/assets/estrutura-17.jpeg.asset.json";
 import es18 from "@/assets/estrutura-18.jpeg.asset.json";
 import es19 from "@/assets/estrutura-19.jpeg.asset.json";
 import es20 from "@/assets/estrutura-20.jpeg.asset.json";
+import fa1 from "@/assets/fachada-1.jpeg.asset.json";
+import fa2 from "@/assets/fachada-2.jpeg.asset.json";
+import fa3 from "@/assets/fachada-3.jpeg.asset.json";
+import fa4 from "@/assets/fachada-4.jpeg.asset.json";
+import fa5 from "@/assets/fachada-5.jpeg.asset.json";
+import fa6 from "@/assets/fachada-6.jpeg.asset.json";
+import fa7 from "@/assets/fachada-7.jpeg.asset.json";
+import fa8 from "@/assets/fachada-8.jpeg.asset.json";
+import fa9 from "@/assets/fachada-9.jpeg.asset.json";
+import fa10 from "@/assets/fachada-10.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -97,7 +107,10 @@ const galleryCategories = [
   {
     id: "fachadas",
     label: "Revestimento de Fachadas",
-    images: [work3, work5, work7, work1, work2, work4, work6, work3, work5, work7, work1, work2],
+    images: [
+      fa1.url, fa2.url, fa3.url, fa4.url, fa5.url,
+      fa6.url, fa7.url, fa8.url, fa9.url, fa10.url,
+    ],
   },
   {
     id: "sandwich",
