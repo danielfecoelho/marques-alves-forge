@@ -38,6 +38,16 @@ import es7 from "@/assets/estrutura-7.jpeg.asset.json";
 import es8 from "@/assets/estrutura-8.jpeg.asset.json";
 import es9 from "@/assets/estrutura-9.jpeg.asset.json";
 import es10 from "@/assets/estrutura-10.jpeg.asset.json";
+import es11 from "@/assets/estrutura-11.jpeg.asset.json";
+import es12 from "@/assets/estrutura-12.jpeg.asset.json";
+import es13 from "@/assets/estrutura-13.jpeg.asset.json";
+import es14 from "@/assets/estrutura-14.jpeg.asset.json";
+import es15 from "@/assets/estrutura-15.jpeg.asset.json";
+import es16 from "@/assets/estrutura-16.jpeg.asset.json";
+import es17 from "@/assets/estrutura-17.jpeg.asset.json";
+import es18 from "@/assets/estrutura-18.jpeg.asset.json";
+import es19 from "@/assets/estrutura-19.jpeg.asset.json";
+import es20 from "@/assets/estrutura-20.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -80,6 +90,8 @@ const galleryCategories = [
     images: [
       es1.url, es2.url, es3.url, es4.url, es5.url,
       es6.url, es7.url, es8.url, es9.url, es10.url,
+      es11.url, es12.url, es13.url, es14.url, es15.url,
+      es16.url, es17.url, es18.url, es19.url, es20.url,
     ],
   },
   {
