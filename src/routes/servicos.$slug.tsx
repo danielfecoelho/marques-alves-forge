@@ -112,21 +112,24 @@ const CONTENT: Record<string, ServiceContent> = {
 
 export const Route = createFileRoute("/servicos/$slug")({
   loader: ({ params }) => {
-    const data = CONTENT[params.slug];
-    if (!data) throw notFound();
-    return { data };
+    if (!CONTENT[params.slug]) throw notFound();
+    return { slug: params.slug };
   },
   head: ({ loaderData }) => {
     if (!loaderData) {
       return { meta: [{ title: "Serviço não encontrado" }, { name: "robots", content: "noindex" }] };
     }
-    const t = `${loaderData.data.title} — Serralharia Marques Alves`;
+    const data = CONTENT[loaderData.slug];
+    if (!data) {
+      return { meta: [{ title: "Serviço não encontrado" }, { name: "robots", content: "noindex" }] };
+    }
+    const t = `${data.title} — Serralharia Marques Alves`;
     return {
       meta: [
         { title: t },
-        { name: "description", content: loaderData.data.intro.slice(0, 160) },
+        { name: "description", content: data.intro.slice(0, 160) },
         { property: "og:title", content: t },
-        { property: "og:description", content: loaderData.data.intro.slice(0, 160) },
+        { property: "og:description", content: data.intro.slice(0, 160) },
       ],
     };
   },
@@ -204,8 +207,9 @@ function PageFooter() {
 }
 
 function ServicePage() {
-  const { data } = Route.useLoaderData() as { data: ServiceContent };
-  const { slug } = Route.useParams();
+  const { slug } = Route.useLoaderData();
+  const data = CONTENT[slug];
+  if (!data) throw notFound();
   const Icon = data.icon;
 
   return (
