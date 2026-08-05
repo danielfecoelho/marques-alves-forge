@@ -81,6 +81,13 @@ import co17 from "@/assets/cobertura-17.jpeg.asset.json";
 import co18 from "@/assets/cobertura-18.jpeg.asset.json";
 import co19 from "@/assets/cobertura-19.jpeg.asset.json";
 import co20 from "@/assets/cobertura-20.jpeg.asset.json";
+import co21 from "@/assets/cobertura-21.jpeg.asset.json";
+import co22 from "@/assets/cobertura-22.jpeg.asset.json";
+import co23 from "@/assets/cobertura-23.jpeg.asset.json";
+import co24 from "@/assets/cobertura-24.jpeg.asset.json";
+import co25 from "@/assets/cobertura-25.jpeg.asset.json";
+import co26 from "@/assets/cobertura-26.jpeg.asset.json";
+import co27 from "@/assets/cobertura-27.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -144,6 +151,8 @@ const galleryCategories = [
       co6.url, co7.url, co8.url, co9.url, co10.url,
       co11.url, co12.url, co13.url, co14.url, co15.url,
       co16.url, co17.url, co18.url, co19.url, co20.url,
+      co21.url, co22.url, co23.url, co24.url, co25.url,
+      co26.url, co27.url,
     ],
   },
 ] as const;
