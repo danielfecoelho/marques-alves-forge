@@ -29,23 +29,13 @@ jobs:
       - name: Build project
         run: bun run build
 
-      - name: Locate folder and prepare 404
+      - name: Create 404 fallback
         run: |
-          if [ -d "dist" ]; then
-            echo "DIRECTORY_PATH=dist" >> $GITHUB_ENV
-            cp dist/index.html dist/404.html
-          elif [ -d "build" ]; then
-            echo "DIRECTORY_PATH=build" >> $GITHUB_ENV
-            cp build/index.html build/404.html
-          elif [ -d ".output/public" ]; then
-            echo "DIRECTORY_PATH=.output/public" >> $GITHUB_ENV
-            cp .output/public/index.html .output/public/404.html
-          else
-            # Caso crie noutra pasta, procura o index.html gerado
-            TARGET_DIR=$(dirname $(find . -name "index.html" -not -path "./node_modules/*" -not -path "./src/*" | head -n 1))
-            echo "DIRECTORY_PATH=$TARGET_DIR" >> $GITHUB_ENV
-            cp "$TARGET_DIR/index.html" "$TARGET_DIR/404.html"
-          fi
+          # Encontra automaticamente a pasta exata onde o index.html foi gerado
+          BUILD_DIR=$(dirname $(find . -name "index.html" -not -path "./node_modules/*" -not -path "./src/*" | head -n 1))
+          echo "Encontrado em: $BUILD_DIR"
+          echo "DIRECTORY_PATH=$BUILD_DIR" >> $GITHUB_ENV
+          cp "$BUILD_DIR/index.html" "$BUILD_DIR/404.html"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
