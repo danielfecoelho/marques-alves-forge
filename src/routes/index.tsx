@@ -58,6 +58,9 @@ import fa7 from "@/assets/fachada-7.jpeg.asset.json";
 import fa8 from "@/assets/fachada-8.jpeg.asset.json";
 import fa9 from "@/assets/fachada-9.jpeg.asset.json";
 import fa10 from "@/assets/fachada-10.jpeg.asset.json";
+import fa11 from "@/assets/fachada-11.jpeg.asset.json";
+import fa12 from "@/assets/fachada-12.jpeg.asset.json";
+import fa13 from "@/assets/fachada-13.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -110,6 +113,7 @@ const galleryCategories = [
     images: [
       fa1.url, fa2.url, fa3.url, fa4.url, fa5.url,
       fa6.url, fa7.url, fa8.url, fa9.url, fa10.url,
+      fa11.url, fa12.url, fa13.url,
     ],
   },
   {
