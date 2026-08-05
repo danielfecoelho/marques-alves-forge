@@ -28,6 +28,16 @@ import am7 from "@/assets/amianto-7.jpeg.asset.json";
 import am8 from "@/assets/amianto-8.jpeg.asset.json";
 import am9 from "@/assets/amianto-9.jpeg.asset.json";
 import am10 from "@/assets/amianto-10.jpeg.asset.json";
+import es1 from "@/assets/estrutura-1.jpeg.asset.json";
+import es2 from "@/assets/estrutura-2.jpeg.asset.json";
+import es3 from "@/assets/estrutura-3.jpeg.asset.json";
+import es4 from "@/assets/estrutura-4.jpeg.asset.json";
+import es5 from "@/assets/estrutura-5.jpeg.asset.json";
+import es6 from "@/assets/estrutura-6.jpeg.asset.json";
+import es7 from "@/assets/estrutura-7.jpeg.asset.json";
+import es8 from "@/assets/estrutura-8.jpeg.asset.json";
+import es9 from "@/assets/estrutura-9.jpeg.asset.json";
+import es10 from "@/assets/estrutura-10.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -67,7 +77,10 @@ const galleryCategories = [
   {
     id: "estruturas",
     label: "Estruturas Metálicas",
-    images: [work2, work4, work6, work7, work1, work3, work5, work2, work4, work6, work7, work1],
+    images: [
+      es1.url, es2.url, es3.url, es4.url, es5.url,
+      es6.url, es7.url, es8.url, es9.url, es10.url,
+    ],
   },
   {
     id: "fachadas",
