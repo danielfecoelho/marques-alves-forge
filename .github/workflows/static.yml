@@ -29,7 +29,7 @@ jobs:
       - name: Build project
         run: bun run build
 
-      - name: Find build folder and add 404
+      - name: Locate folder and prepare 404
         run: |
           if [ -d "dist" ]; then
             echo "DIRECTORY_PATH=dist" >> $GITHUB_ENV
@@ -41,7 +41,10 @@ jobs:
             echo "DIRECTORY_PATH=.output/public" >> $GITHUB_ENV
             cp .output/public/index.html .output/public/404.html
           else
-            echo "DIRECTORY_PATH=." >> $GITHUB_ENV
+            # Caso crie noutra pasta, procura o index.html gerado
+            TARGET_DIR=$(dirname $(find . -name "index.html" -not -path "./node_modules/*" -not -path "./src/*" | head -n 1))
+            echo "DIRECTORY_PATH=$TARGET_DIR" >> $GITHUB_ENV
+            cp "$TARGET_DIR/index.html" "$TARGET_DIR/404.html"
           fi
 
       - name: Setup Pages
