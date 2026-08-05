@@ -1,10 +1,11 @@
 [build]
   command = "bun run build"
-  publish = "dist/client"
-  functions = "netlify/functions"
+  publish = "dist"
 
-[functions]
-  node_bundler = "esbuild"
-
-# O endpoint do formulário é servido pela função em netlify/functions/contact.mts
-# (declara o caminho /api/public/contact via `export const config`).
+# O servidor (SSR) e o endpoint /api/public/contact são gerados automaticamente
+# pelo preset "netlify" do Nitro (configurado em vite.config.ts) como uma
+# Netlify Serverless Function em .netlify/functions-internal/server.
+# Essa função regista-se como catch-all (path: "/*", preferStatic: true), pelo
+# que os ficheiros estáticos em "dist" (assets/img) são servidos diretamente e
+# todo o resto (páginas SSR + /api/public/contact) passa pela função.
+# Por isso NÃO se define "functions" manualmente — o Nitro trata disso.

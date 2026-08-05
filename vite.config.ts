@@ -6,4 +6,10 @@
 // You can pass additional config via defineConfig({ vite: { ... } }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
-export default defineConfig();
+// No ambiente Lovable (sandbox) o preset é forçado para cloudflare-module,
+// pelo que o preview não é afetado. Em ambientes externos (ex.: Netlify) este
+// preset "netlify" faz com que o SSR corra como uma Netlify Serverless Function,
+// permitindo deploy na Netlify com o endpoint /api/public/contact funcional.
+export default defineConfig({
+  nitro: { preset: "netlify" },
+});
