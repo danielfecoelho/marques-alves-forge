@@ -3,14 +3,6 @@ import { useState } from "react";
 import { ArrowLeft, ArrowRight, CheckCircle2, ShieldCheck, HardHat, Building2, DoorOpen, Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/logo-original.png";
-import work1 from "@/assets/work-1.jpg";
-import work2 from "@/assets/work-2.jpg";
-import work3 from "@/assets/work-3.jpg";
-import work4 from "@/assets/work-4.jpg";
-import work5 from "@/assets/work-5.jpg";
-import work6 from "@/assets/work-6.jpg";
-import work7 from "@/assets/work-7.jpg";
-import amiantoHero from "@/assets/amianto-hero.png.asset.json";
 import am1 from "@/assets/amianto-1.jpeg.asset.json";
 import am2 from "@/assets/amianto-2.jpeg.asset.json";
 import am3 from "@/assets/amianto-3.jpeg.asset.json";
@@ -48,7 +40,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Executamos a remoção de coberturas em fibrocimento com equipas certificadas, transporte licenciado e destino final autorizado. Substituímos por soluções modernas em painel sandwich, prontas para décadas de uso.",
     icon: ShieldCheck,
-    hero: amiantoHero.url,
+    hero: am1.url,
     highlights: [
       { title: "Equipa certificada", desc: "Técnicos com formação específica em remoção de materiais com amianto." },
       { title: "Transporte licenciado", desc: "Recolha, transporte e encaminhamento para operador autorizado." },
@@ -89,7 +81,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Projetamos e executamos estruturas metálicas para pavilhões industriais, armazéns, coberturas de grandes vãos e ampliações. Trabalho de precisão com cálculo, corte, soldadura e montagem em obra.",
     icon: Building2,
-    hero: work2,
+    hero: es1.url,
     highlights: [
       { title: "Cálculo rigoroso", desc: "Projeto adaptado às cargas, vãos e utilização prevista." },
       { title: "Soldadura de qualidade", desc: "Execução por soldadores experientes, com acabamentos limpos." },
@@ -235,15 +227,9 @@ function ServicePage() {
             <img
               src={data.hero}
               alt=""
-              className={`h-full w-full object-cover object-center ${data.hero === amiantoHero.url ? "opacity-70" : "opacity-40"}`}
+              className="h-full w-full object-cover object-center opacity-50"
             />
-            <div
-              className={
-                data.hero === amiantoHero.url
-                  ? "absolute inset-0 bg-gradient-to-t from-secondary via-secondary/70 to-secondary/40"
-                  : "absolute inset-0 bg-gradient-to-t from-secondary via-secondary/85 to-secondary/60"
-              }
-            />
+            <div className="absolute inset-0 bg-gradient-to-t from-secondary via-secondary/80 to-secondary/50" />
           </div>
           <div className="mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-24 md:py-32">
             <Link to="/" hash="servicos" className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-secondary-foreground/70 transition-colors hover:text-white">
