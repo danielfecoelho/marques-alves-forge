@@ -15,6 +15,10 @@ import am1 from "@/assets/amianto-1.jpeg.asset.json";
 import am2 from "@/assets/amianto-2.jpeg.asset.json";
 import am3 from "@/assets/amianto-3.jpeg.asset.json";
 import am4 from "@/assets/amianto-4.jpeg.asset.json";
+import es1 from "@/assets/estrutura-1.jpeg.asset.json";
+import es2 from "@/assets/estrutura-2.jpeg.asset.json";
+import es3 from "@/assets/estrutura-3.jpeg.asset.json";
+import es6 from "@/assets/estrutura-6.jpeg.asset.json";
 
 type ServiceContent = {
   title: string;
@@ -88,7 +92,7 @@ const CONTENT: Record<string, ServiceContent> = {
       { step: "03", title: "Fabrico em oficina", desc: "Corte, furação e soldadura das peças com controlo de qualidade." },
       { step: "04", title: "Montagem em obra", desc: "Erguimento da estrutura e alinhamentos finais." },
     ],
-    gallery: [work2, work4, work6, work7],
+    gallery: [es6.url, es1.url, es2.url, es3.url],
     completed: "+ de 200 estruturas montadas",
   },
   "revestimento-fachadas": {
