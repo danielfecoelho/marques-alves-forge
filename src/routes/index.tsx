@@ -61,6 +61,16 @@ import fa10 from "@/assets/fachada-10.jpeg.asset.json";
 import fa11 from "@/assets/fachada-11.jpeg.asset.json";
 import fa12 from "@/assets/fachada-12.jpeg.asset.json";
 import fa13 from "@/assets/fachada-13.jpeg.asset.json";
+import co1 from "@/assets/cobertura-1.jpeg.asset.json";
+import co2 from "@/assets/cobertura-2.jpeg.asset.json";
+import co3 from "@/assets/cobertura-3.jpeg.asset.json";
+import co4 from "@/assets/cobertura-4.jpeg.asset.json";
+import co5 from "@/assets/cobertura-5.jpeg.asset.json";
+import co6 from "@/assets/cobertura-6.jpeg.asset.json";
+import co7 from "@/assets/cobertura-7.jpeg.asset.json";
+import co8 from "@/assets/cobertura-8.jpeg.asset.json";
+import co9 from "@/assets/cobertura-9.jpeg.asset.json";
+import co10 from "@/assets/cobertura-10.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -119,7 +129,10 @@ const galleryCategories = [
   {
     id: "sandwich",
     label: "Coberturas em Painel Sandwich / Coberturas Deck",
-    images: [work4, work6, work2, work5, work7, work1, work3, work4, work6, work2, work5, work7],
+    images: [
+      co1.url, co2.url, co3.url, co4.url, co5.url,
+      co6.url, co7.url, co8.url, co9.url, co10.url,
+    ],
   },
 ] as const;
 
