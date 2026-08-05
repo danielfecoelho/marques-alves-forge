@@ -18,6 +18,16 @@ import work4 from "@/assets/work-4.jpg";
 import work5 from "@/assets/work-5.jpg";
 import work6 from "@/assets/work-6.jpg";
 import work7 from "@/assets/work-7.jpg";
+import am1 from "@/assets/amianto-1.jpeg.asset.json";
+import am2 from "@/assets/amianto-2.jpeg.asset.json";
+import am3 from "@/assets/amianto-3.jpeg.asset.json";
+import am4 from "@/assets/amianto-4.jpeg.asset.json";
+import am5 from "@/assets/amianto-5.jpeg.asset.json";
+import am6 from "@/assets/amianto-6.jpeg.asset.json";
+import am7 from "@/assets/amianto-7.jpeg.asset.json";
+import am8 from "@/assets/amianto-8.jpeg.asset.json";
+import am9 from "@/assets/amianto-9.jpeg.asset.json";
+import am10 from "@/assets/amianto-10.jpeg.asset.json";
 
 export const Route = createFileRoute("/")({
   component: Index,
@@ -49,7 +59,10 @@ const galleryCategories = [
   {
     id: "amianto",
     label: "Remoção de Amianto",
-    images: [work1, work3, work5, work2, work4, work6, work7, work1, work3, work5, work2, work4],
+    images: [
+      am1.url, am2.url, am3.url, am4.url, am5.url,
+      am6.url, am7.url, am8.url, am9.url, am10.url,
+    ],
   },
   {
     id: "estruturas",
