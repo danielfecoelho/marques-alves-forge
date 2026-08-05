@@ -1,0 +1,10 @@
+[build]
+  command = "bun run build"
+  publish = "dist/client"
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+# O endpoint do formulário é servido pela função em netlify/functions/contact.mts
+# (declara o caminho /api/public/contact via `export const config`).
