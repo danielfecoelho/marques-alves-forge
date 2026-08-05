@@ -105,7 +105,7 @@ const CONTENT: Record<string, ServiceContent> = {
     intro:
       "Aplicamos revestimentos de fachada em chapa perfilada e painel sandwich para pavilhões industriais. Um acabamento uniforme, estanque e com longa vida útil.",
     icon: DoorOpen,
-    hero: work3,
+    hero: fa1.url,
     highlights: [
       { title: "Chapa e painel", desc: "Várias soluções e cores para adaptar a cada projeto." },
       { title: "Remates limpos", desc: "Todos os acabamentos executados com rigor." },
