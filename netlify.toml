@@ -2,10 +2,12 @@
   command = "bun run build"
   publish = "dist"
 
-# O servidor (SSR) e o endpoint /api/public/contact são gerados automaticamente
-# pelo preset "netlify" do Nitro (configurado em vite.config.ts) como uma
-# Netlify Serverless Function em .netlify/functions-internal/server.
-# Essa função regista-se como catch-all (path: "/*", preferStatic: true), pelo
-# que os ficheiros estáticos em "dist" (assets/img) são servidos diretamente e
-# todo o resto (páginas SSR + /api/public/contact) passa pela função.
-# Por isso NÃO se define "functions" manualmente — o Nitro trata disso.
+# O SSR é gerado automaticamente pelo preset "netlify" do Nitro (ver
+# vite.config.ts) como uma Netlify Serverless Function catch-all
+# (path: "/*", preferStatic: true) em .netlify/functions-internal/server.
+# Os ficheiros estáticos em "dist" (assets/img/__forms.html) são servidos
+# diretamente. Por isso NÃO se define "functions" manualmente.
+#
+# O formulário de contacto usa Netlify Forms: public/__forms.html contém o
+# formulário estático "contacto" que a Netlify deteta no deploy, e o
+# formulário do site submete via POST para /__forms.html.
