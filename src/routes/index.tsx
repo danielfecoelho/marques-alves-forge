@@ -623,10 +623,18 @@ function ContactForm() {
     setErrors({});
     setSubmitting(true);
     try {
-      const res = await fetch("/api/public/contact", {
+      const body = new URLSearchParams({
+        "form-name": "contacto",
+        name: result.data.name,
+        phone: result.data.phone,
+        email: result.data.email,
+        workType: result.data.workType,
+        message: result.data.message ?? "",
+      });
+      const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(result.data),
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: body.toString(),
       });
       if (!res.ok) throw new Error("send failed");
       toast.success("Pedido enviado!", {
@@ -650,30 +658,35 @@ function ContactForm() {
   return (
     <form
       className="space-y-5 p-6 sm:p-10 md:p-14 animate-fade-in"
+      name="contacto"
+      method="POST"
+      action="/__forms.html"
+      data-netlify="true"
       onSubmit={onSubmit}
       noValidate
     >
+      <input type="hidden" name="form-name" value="contacto" />
       <h3 className="font-display text-xl font-medium text-muted-foreground sm:text-2xl">Ou, se preferir, deixe-nos os detalhes</h3>
       <div className="grid gap-4 sm:grid-cols-2">
         <div>
           <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Nome *</label>
-          <input value={values.name} onChange={update("name")} className={fieldClass(errors.name)} />
+          <input name="name" value={values.name} onChange={update("name")} className={fieldClass(errors.name)} />
           {errors.name && <p className="mt-1 text-xs text-destructive">{errors.name}</p>}
         </div>
         <div>
           <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Telefone *</label>
-          <input value={values.phone} onChange={update("phone")} className={fieldClass(errors.phone)} />
+          <input name="phone" value={values.phone} onChange={update("phone")} className={fieldClass(errors.phone)} />
           {errors.phone && <p className="mt-1 text-xs text-destructive">{errors.phone}</p>}
         </div>
       </div>
       <div>
         <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">O seu email</label>
-        <input type="email" value={values.email} onChange={update("email")} className={fieldClass(errors.email)} />
+        <input type="email" name="email" value={values.email} onChange={update("email")} className={fieldClass(errors.email)} />
         {errors.email && <p className="mt-1 text-xs text-destructive">{errors.email}</p>}
       </div>
       <div>
         <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Tipo de Trabalho</label>
-        <select value={values.workType} onChange={update("workType")} className={fieldClass(errors.workType)}>
+        <select name="workType" value={values.workType} onChange={update("workType")} className={fieldClass(errors.workType)}>
           <option>Remoção de Amianto</option>
           <option>Coberturas em Painel Sandwich / Coberturas Deck</option>
           <option>Revestimento de Fachadas</option>
@@ -686,6 +699,7 @@ function ContactForm() {
         <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wider text-muted-foreground">Descreva o seu projeto</label>
         <textarea
           rows={4}
+          name="message"
           value={values.message}
           onChange={update("message")}
           className={`w-full rounded-md border bg-background p-4 text-sm focus:outline-none transition-colors ${
