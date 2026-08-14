@@ -11,7 +11,7 @@ const PHONE = "916 328 909";
 const PHONE_RAW = "+351916328909";
 const EMAIL = "geral@serralhariamarquesalves.pt";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
-const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(ADDRESS);
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Lda+Pedome";
 
 export const Route = createFileRoute("/sobre")({
   head: () => ({

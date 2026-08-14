@@ -100,7 +100,7 @@ const PHONE_2_RAW = "+351914468612";
 const WHATSAPP = "https://wa.me/351916328909?text=Ol%C3%A1%2C%20gostaria%20de%20pedir%20um%20or%C3%A7amento.";
 const EMAIL = "serralhariamarquesalves@gmail.com";
 const ADDRESS = "Rua de Real, 4765-148 Pedome";
-const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent("Rua de Real, 4765-148 Pedome");
+const MAPS_URL = "https://www.google.com/maps/search/?api=1&query=Serralharia+Marques+Alves+Lda+Pedome";
 const SCHEDULE = "Seg a Sex · 08:00 – 18:00";
 
 const openExternal = (url: string) => (e: React.MouseEvent) => {
