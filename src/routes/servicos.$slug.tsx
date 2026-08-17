@@ -207,7 +207,21 @@ function PageFooter() {
         <Link to="/" aria-label="Voltar ao início" className="flex items-center">
           <img src={logo} alt="Serralharia Marques Alves" className="h-9 w-auto rounded-sm" />
         </Link>
-        <p className="text-xs text-secondary-foreground/60">© {new Date().getFullYear()} Serralharia Marques Alves. Todos os direitos reservados.</p>
+        <p className="flex flex-wrap items-center justify-center gap-x-3 text-center text-xs text-secondary-foreground/60 md:justify-end md:text-right">
+          <span>©{new Date().getFullYear()}</span>
+          <span aria-hidden="true">·</span>
+          <span>Serralharia Marques Alves Lda</span>
+          <span aria-hidden="true">·</span>
+          <span>Todos os direitos reservados</span>
+          <span aria-hidden="true">·</span>
+          <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="underline-offset-4 transition-colors hover:text-secondary-foreground/80 hover:underline">
+            Livro de Reclamações
+          </a>
+          <span aria-hidden="true">·</span>
+          <a href="https://www.instagram.com/serralhariamarquesalves/" target="_blank" rel="noopener noreferrer" className="underline-offset-4 transition-colors hover:text-secondary-foreground/80 hover:underline">
+            Instagram
+          </a>
+        </p>
       </div>
     </footer>
   );
