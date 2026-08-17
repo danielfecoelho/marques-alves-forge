@@ -728,7 +728,6 @@ function _Footer() {
           </a>
           <p className="flex flex-wrap items-center justify-center gap-x-2 text-center text-xs text-secondary-foreground/60 md:text-right">
             <span>© {new Date().getFullYear()}. Serralharia Marques Alves Lda. Todos os direitos reservados.</span>
-            <span className="text-secondary-foreground/30">·</span>
             <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="underline-offset-4 transition-colors hover:text-secondary-foreground/80 hover:underline">
               Livro de Reclamações
             </a>
