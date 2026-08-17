@@ -154,7 +154,7 @@ function SobrePage() {
                 A Serralharia Marques Alves nasceu para dar resposta a quem procura um parceiro de confiança para obras metálicas exigentes. Trabalhamos lado a lado com o cliente, do primeiro esboço à entrega da obra, com a garantia de que o que fazemos é feito para durar.
               </p>
               <p className="mt-4 text-muted-foreground text-justify">
-                Combinamos oficina própria e várias equipas experientes em obra. Assim conseguimos responder rapidamente — seja um pavilhão industrial completo, uma cobertura em painel sandwich / cobertura deck ou a remoção segura de coberturas em fibrocimento.
+                Combinamos oficina própria e várias equipas experientes em obra. Assim conseguimos responder rapidamente, seja um pavilhão industrial completo, uma cobertura em painel sandwich / cobertura deck ou a remoção segura de coberturas em fibrocimento.
               </p>
               <div className="mt-8 grid grid-cols-3 gap-6 border-t border-border pt-6">
                 <div>
@@ -173,7 +173,7 @@ function SobrePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img src={oficio1.url} alt="Equipa da Serralharia Marques Alves em obra" className="aspect-[4/5] w-full rounded-md object-cover" />
-              <img src={oficio2.url} alt="Técnico em estrutura metálica" className="aspect-[4/5] w-full rounded-md object-cover" />
+              <img src={oficio2.url} alt="Técnico em estrutura metálica" className="aspect-[4/5] w-full rounded-md object-cover object-right" />
             </div>
           </div>
         </section>
