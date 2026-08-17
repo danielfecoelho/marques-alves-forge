@@ -96,13 +96,13 @@ function PageFooter() {
           <Link to="/" aria-label="Voltar ao início" className="flex items-center">
             <img src={logo} alt="Serralharia Marques Alves" className="h-9 w-auto rounded-sm" />
           </Link>
-          <p className="text-xs text-secondary-foreground/60">© {new Date().getFullYear()} Serralharia Marques Alves Lda. Todos os direitos reservados.</p>
-        </div>
-        <div className="mt-4 flex flex-col items-center gap-2 border-t border-secondary-foreground/10 pt-4 text-center md:flex-row md:justify-between md:text-left">
-          <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="text-xs text-secondary-foreground/50 underline-offset-4 transition-colors hover:text-secondary-foreground/80 hover:underline">
-            Livro de Reclamações
-          </a>
-          <p className="text-xs text-secondary-foreground/40">Serralharia Marques Alves Lda</p>
+          <p className="flex flex-wrap items-center justify-center gap-x-2 text-center text-xs text-secondary-foreground/60 md:text-right">
+            <span>© {new Date().getFullYear()}. Serralharia Marques Alves Lda. Todos os direitos reservados.</span>
+            <span className="text-secondary-foreground/30">·</span>
+            <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="underline-offset-4 transition-colors hover:text-secondary-foreground/80 hover:underline">
+              Livro de Reclamações
+            </a>
+          </p>
         </div>
       </div>
     </footer>
