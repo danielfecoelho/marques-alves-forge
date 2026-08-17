@@ -6,7 +6,7 @@ import logoAsset from "@/assets/logo-centrado.jpeg.asset.json";
 const logo = logoAsset.url;
 import sobreBg from "@/assets/sobre-bg.jpeg.asset.json";
 import oficio1 from "@/assets/sobre-oficio-1.jpeg.asset.json";
-import oficio2 from "@/assets/sobre-oficio-2.jpeg.asset.json";
+import oficio2 from "@/assets/sobre-oficio-2b.jpeg.asset.json";
 
 const PHONE = "916 328 909";
 const PHONE_RAW = "+351916328909";
@@ -173,7 +173,7 @@ function SobrePage() {
             </div>
             <div className="grid grid-cols-2 gap-4">
               <img src={oficio1.url} alt="Equipa da Serralharia Marques Alves em obra" className="aspect-[4/5] w-full rounded-md object-cover" />
-              <img src={oficio2.url} alt="Técnico em estrutura metálica" className="aspect-[4/5] w-full rounded-md object-cover object-right" />
+              <img src={oficio2.url} alt="Técnico da Serralharia Marques Alves em obra" className="aspect-[4/5] w-full rounded-md object-cover object-center" />
             </div>
           </div>
         </section>
