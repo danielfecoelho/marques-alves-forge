@@ -536,8 +536,9 @@ function Contact() {
                   </div>
                   <div className="min-w-0">
                     <div className="text-xs uppercase tracking-wider text-secondary-foreground/60">Telefone</div>
-                    <a href={`tel:${PHONE_RAW}`} className="block font-display text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-4xl">{PHONE}</a>
-                    <a href={`tel:${PHONE_2_RAW}`} className="block font-display text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-4xl">{PHONE_2}</a>
+                    <a href={`tel:${PHONE_RAW}`} className="block font-display text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-4xl">+351 {PHONE}</a>
+                    <a href={`tel:${PHONE_2_RAW}`} className="block font-display text-2xl font-extrabold leading-tight tracking-tight sm:text-3xl md:text-4xl">+351 {PHONE_2}</a>
+                    <p className="mt-1 text-xs text-secondary-foreground/50">Chamada para rede móvel nacional</p>
                   </div>
                 </div>
                 <a href={`mailto:${EMAIL}`} className="group flex items-center gap-4">
@@ -720,11 +721,19 @@ function ContactForm() {
 function _Footer() {
   return (
     <footer className="border-t border-border bg-secondary py-10 text-secondary-foreground">
-      <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-6 md:flex-row">
-        <a href="#top" aria-label="Voltar ao início" className="flex items-center">
-          <img src={logo} alt="Serralharia Marques Alves" className="h-9 w-auto rounded-sm" />
-        </a>
-        <p className="text-xs text-secondary-foreground/60">© {new Date().getFullYear()} Serralharia Marques Alves. Todos os direitos reservados.</p>
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+          <a href="#top" aria-label="Voltar ao início" className="flex items-center">
+            <img src={logo} alt="Serralharia Marques Alves" className="h-9 w-auto rounded-sm" />
+          </a>
+          <p className="text-xs text-secondary-foreground/60">© {new Date().getFullYear()} Serralharia Marques Alves Lda. Todos os direitos reservados.</p>
+        </div>
+        <div className="mt-4 flex flex-col items-center gap-2 border-t border-secondary-foreground/10 pt-4 text-center md:flex-row md:justify-between md:text-left">
+          <a href="https://www.livroreclamacoes.pt" target="_blank" rel="noopener noreferrer" className="text-xs text-secondary-foreground/50 underline-offset-4 transition-colors hover:text-secondary-foreground/80 hover:underline">
+            Livro de Reclamações
+          </a>
+          <p className="text-xs text-secondary-foreground/40">Serralharia Marques Alves Lda</p>
+        </div>
       </div>
     </footer>
   );
